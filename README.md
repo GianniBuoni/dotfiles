@@ -2,10 +2,6 @@
 
 - [ ] Configure hyprshot
 
-## Misc Chores:
-
-- [ ] Write Template `env.local.nix` file
-
 ---
 
 # Nix OS!
@@ -40,6 +36,34 @@ git add . -Nf && home-manager switch --flake .
 ```
 
 This command is abbreviated as `:nh` in Espanso.
+
+## env.local.nix
+
+Here is a basic template for this file:
+
+```
+{
+  systemSettings = {
+    system = "x86_64-linux";
+    hostName = "hostName";
+    formFactor = "laptop";
+    # model = "laptop-model-name";
+  };
+
+  userSettings = {
+    userName = "userName";
+    name = "your-full-name";
+    # email = "your-email";
+    # gitEmail = "your-email-for-git";
+    theme = "base-16-theme-name";
+    palette = values-of-base-16-theme-name;
+    font = "font-name";
+    nerdFont = font + " Nerd Font";
+    cursor = "cursor-name";
+    cursorPkg = "cursor-package-name";
+  };
+}
+```
 
 ## Programs
 
