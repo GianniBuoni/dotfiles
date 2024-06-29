@@ -68,7 +68,7 @@ Here is a basic template for this file:
 ## Programs
 
 - Window Manager - [Hyprland](https://hyprland.org/)
-- Terminal Emulator - [Alacritty](https://alacritty.org/)
+- Terminal Emulator - [Kitty](https://sw.kovidgoyal.net/kitty/)
 - Editor - [Neovim](https://neovim.io/)
 - File Manager - [Yazi](https://yazi-rs.github.io/)
 - Bar - [Waybar](https://github.com/Alexays/Waybar)

@@ -1,22 +1,9 @@
-{pkgs, ...}: let
-  term = "xterm-256color";
-in {
+{pkgs, ...}: {
   programs = {
-    alacritty = {
+    kitty = {
       enable = true;
-      settings = {
-        env.TERM = term;
-        window = {
-          padding.x = 10;
-          padding.y = 10;
-          blur = true;
-          decorations = "None";
-        };
-      };
+      settings.window_padding_width = 10;
     };
-
-    ripgrep.enable = true;
-    starship.enable = true;
 
     tmux = {
       enable = true;
@@ -26,8 +13,6 @@ in {
         tmuxPlugins.vim-tmux-navigator
       ];
       extraConfig = ''
-        set -g default-terminal "screen-256color"
-        set -ag terminal-overrides ",${term}:RGB"
         set-option -g mouse on
         set-option -g status-position top
         set -g base-index 1
@@ -50,8 +35,10 @@ in {
       autosuggestion.enable = true;
     };
 
-    eza.enable = true;
     fzf.enable = true;
+    eza.enable = true;
+    ripgrep.enable = true;
+    starship.enable = true;
     zoxide.enable = true;
   };
 

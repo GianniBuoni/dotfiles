@@ -16,11 +16,11 @@ in {
   ];
   wayland.windowManager.hyprland.settings = {
     # ----- PROGRAM VARIABLES ----- #
-    "$terminal" = "alacritty";
-    "$fileManager" = "alacritty -e yazi";
+    "$terminal" = "kitty";
+    "$fileManager" = "kitty -e yazi";
     "$menu" = "rofi -show drun";
     "$web" = "firefox";
-    "$dotfiles" = "alacritty -e dotfiles-open";
+    "$dotfiles" = "kitty -e dotfiles-open";
 
     # ----- PROGRAM KEYBINDINGS ----- #
     bind = [
