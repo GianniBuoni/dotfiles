@@ -7,6 +7,7 @@
         show_notifications = false;
         show_icon = false;
         search_trigger = "OFF";
+        search_shortcut = "OFF";
         toggle_key = "OFF";
       };
     };

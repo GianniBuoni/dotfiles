@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  userSettings,
   ...
 }: let
   inherit (config.lib.formats.rasi) mkLiteral;
@@ -18,7 +19,7 @@ in {
       width = mkLiteral "45%";
       border-radius = mkLiteral "7px";
       border = mkLiteral "1px";
-      border-color = mkLiteral "@blue";
+      border-color = mkLiteral "#${userSettings.palette.base0D}";
       padding = mkLiteral "10px";
     };
 
@@ -48,7 +49,7 @@ in {
     };
 
     "element selected.normal" = lib.mkForce {
-      background-color = mkLiteral "@blue";
+      background-color = mkLiteral "#${userSettings.palette.base0D}";
       text-color = mkLiteral "@background";
     };
   };

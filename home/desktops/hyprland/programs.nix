@@ -19,6 +19,7 @@ in {
     "$terminal" = "kitty";
     "$fileManager" = "kitty -e yazi";
     "$menu" = "rofi -show drun";
+    "$run" = "rofi -show run";
     "$web" = "firefox";
     "$dotfiles" = "kitty -e dotfiles-open";
 
@@ -32,6 +33,7 @@ in {
       "$mod, M, exit"
       "$mod, V, togglefloating"
       "$mod, SPACE, exec, $menu"
+      "ALT, SPACE, exec, $run"
     ];
 
     # --- AUTOSTART --- #

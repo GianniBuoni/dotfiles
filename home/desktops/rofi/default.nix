@@ -9,6 +9,7 @@
     package = pkgs.rofi-wayland;
     extraConfig = {
       display-drun = "Applications ";
+      display-run = "Run ";
       show-icons = true;
     };
   };
