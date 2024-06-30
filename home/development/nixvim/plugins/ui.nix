@@ -14,5 +14,9 @@
         "CursorLine"
       ];
     };
+    alpha = {
+      enable = true;
+      theme = "dashboard";
+    };
   };
 }

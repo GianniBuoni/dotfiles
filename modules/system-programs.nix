@@ -9,6 +9,7 @@
     neovim
     podman
     wget
+    efibootmgr
   ];
 
   programs.firefox.enable = true;

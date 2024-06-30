@@ -8,9 +8,19 @@
   ];
 
   boot = {
-    # Bootloader.
-    loader.systemd-boot.enable = true;
-    loader.efi.canTouchEfiVariables = true;
+    loader = {
+      # Bootloader.
+      #grub = {
+      #  enable = true;
+      #  efiSupport = true;
+      #  device = "nodev";
+      #};
+      efi = {
+        canTouchEfiVariables = true;
+        # efiSysMountPoint = "/boot";
+      };
+      systemd-boot.enable = true;
+    };
 
     # Linux kernel
     kernelPackages = pkgs.linuxPackages_latest;
