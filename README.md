@@ -1,6 +1,13 @@
 ## Hyprland To Do:
 
 - [ ] Configure hyprshot
+- [ ] Test hypridle
+
+## Misc
+
+- [ ] Switch to GRUB bootloader
+- [ ] Write starter scripts for Node Projects
+- [ ] Take Screenshots for Documentation
 
 ---
 
