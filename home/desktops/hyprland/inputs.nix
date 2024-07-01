@@ -1,9 +1,9 @@
 {
   wayland.windowManager.hyprland.settings = {
     input = {
-      kb_layout = "us,us";
-      kb_variant = ",colemak_dh";
-      kb_options = "grp:alt_shift_toggle";
+      kb_layout = "us";
+      kb_variant = "";
+      kb_options = "";
 
       follow_mouse = 1;
 
