@@ -9,6 +9,7 @@
 - [ ] Write starter scripts for Node Projects
 - [ ] Take Screenshots for Documentation
 - [ ] Theme GRUB (Stylix did not to the greatest job for a high DPI screen)
+- [ ] Theme Neovim Greeter
 
 ---
 
