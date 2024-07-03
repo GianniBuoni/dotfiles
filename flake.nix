@@ -56,7 +56,7 @@
         inherit systemSettings;
       };
       modules = [
-        ./home
+        ./users/home/${userSettings.userName}.nix
         stylix.homeManagerModules.stylix
         nixvim.homeManagerModules.nixvim
         inputs.ags.homeManagerModules.default
