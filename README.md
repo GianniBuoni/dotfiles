@@ -73,6 +73,8 @@ Here is a basic template for this file:
 }
 ```
 
+**NOTE:** the `/hosts` and `/users` folder also require their own local setup. Look at the README's for those folders to get everything to work.
+
 ## Programs
 
 - Window Manager - [Hyprland](https://hyprland.org/)
