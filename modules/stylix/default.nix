@@ -36,5 +36,8 @@
       applications = 10;
       terminal = 10;
     };
+
+    # ----- GRUB ----- #
+    targets.grub.enable = false;
   };
 }

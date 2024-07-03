@@ -1,13 +1,14 @@
 ## Hyprland To Do:
 
 - [ ] Configure hyprshot
-- [ ] Test hypridle
+- [x] Test hypridle
 
 ## Misc
 
-- [ ] Switch to GRUB bootloader
+- [x] Switch to GRUB bootloader
 - [ ] Write starter scripts for Node Projects
 - [ ] Take Screenshots for Documentation
+- [ ] Theme GRUB (Stylix did not to the greatest job for a high DPI screen)
 
 ---
 

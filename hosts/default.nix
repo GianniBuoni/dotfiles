@@ -10,16 +10,14 @@
   boot = {
     loader = {
       # Bootloader.
-      #grub = {
-      #  enable = true;
-      #  efiSupport = true;
-      #  device = "nodev";
-      #};
+      grub = {
+        enable = true;
+        efiSupport = true;
+        device = "nodev";
+      };
       efi = {
         canTouchEfiVariables = true;
-        # efiSysMountPoint = "/boot";
       };
-      systemd-boot.enable = true;
     };
 
     # Linux kernel
