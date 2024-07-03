@@ -1,6 +1,6 @@
 ## Hyprland To Do:
 
-- [ ] Configure hyprshot
+- [x] Configure hyprshot
 - [x] Test hypridle
 
 ## Misc

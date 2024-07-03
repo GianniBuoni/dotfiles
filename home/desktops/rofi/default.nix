@@ -2,6 +2,7 @@
   imports = [
     ./style.nix
     ./power-menu.nix
+    ./screenshot.nix
   ];
 
   programs.rofi = {
