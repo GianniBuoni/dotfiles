@@ -19,7 +19,7 @@
       layout = [
         {
           type = "padding";
-          val = 5;
+          val = 7;
         }
         {
           opts = {
@@ -42,6 +42,7 @@
         }
         {
           type = "group";
+          opts = {spacing = 1;};
           val = let
             mkButton = shortcut: cmd: val: hl: {
               type = "button";
@@ -57,7 +58,7 @@
                 ];
                 position = "center";
                 cursor = 0;
-                width = 40;
+                width = 50;
                 align_shortcut = "right";
                 hl_shortcut = "Keyword";
               };
@@ -67,37 +68,51 @@
               mkButton
               "f"
               "Telescope find_files"
-              "󰈔 Find File"
+              "󰈔  Find File"
               "Special"
             )
             (
               mkButton
               "g"
               "Telescope live_grep"
-              "󱎸 Find Word"
+              "󱎸  Find Word"
               "Special"
             )
             (
               mkButton
               "h"
               "Telescope oldfiles"
-              "󰑐 Recent Files"
+              "󰑐  Recent Files"
               "Special"
             )
             (
               mkButton
               "e"
               "enew"
-              "󰏌 New File"
+              "󰏌  New File"
               "String"
             )
             (
               mkButton
               "q"
               "qa"
-              "󰚑 Quit Neovim"
+              "󰚑  Quit Neovim"
               "String"
             )
+          ];
+        }
+        {
+          type = "padding";
+          val = 5;
+        }
+        {
+          opts = {
+            position = "center";
+            hl = "Type";
+          };
+          type = "text";
+          val = [
+            "BOOP THE SNOOT! 🐶👃"
           ];
         }
       ];
