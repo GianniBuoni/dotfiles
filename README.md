@@ -6,10 +6,10 @@
 ## Misc
 
 - [x] Switch to GRUB bootloader
-- [ ] Write starter scripts for Node Projects
-- [ ] Take Screenshots for Documentation
+- [x] Write starter scripts for Node Projects
+- [x] Take Screenshots for Documentation
 - [ ] Theme GRUB (Stylix did not to the greatest job for a high DPI screen)
-- [ ] Theme Neovim Greeter
+- [x] Theme Neovim Greeter
 
 ---
 
