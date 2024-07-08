@@ -6,9 +6,13 @@ This is my current configuration for Nix OS for my machines.
 
 ## Flake
 
-Flake is setup such that System and User specific variables will determine which files get imported into the system.
+Flake is setup such that System and User specific variables are defined in an easy to reach file and get propagated to all the modules that depend on them.
 
-These variables are defined in an untracked local file in the `/env` directory. To work around some of the rules around building Nix and Home-Manager systems within a git repo, the `/env` has to be staged and unstaged before and after building respectively:
+These defined variables are stored in an untracked local file in the `/env` directory. See the [env Directory](#env-directory) section for more info.
+
+To work around some of the rules that Nix imposes when building Nix and Home-Manager systems within a git repo, `/env` has to be force staged and them unstaged before and after building respectively.
+
+Buidlding the system:
 
 ```
 git add . -Nf && sudo nixos-rebuild switch --flake .
@@ -16,7 +20,7 @@ git add . -Nf && sudo nixos-rebuild switch --flake .
 
 This command is abbreviated as `:nn` in Espanso.
 
-Then to commit:
+Repo is then reset so as not to commit local files:
 
 ```
 git reset && git add . && git commit -m "..."
@@ -26,8 +30,7 @@ Abbreviated as `:gc` in Espanso.
 
 ## Home Manager
 
-Home manager is setup as it's own separate module for potential use with work Mac.
-Also, it's separated from the system in order to not pollute my system generations. It's a little faster to iterate.
+Home manager is setup as it's own separate module.
 
 ```
 git add . -Nf && home-manager switch --flake .
@@ -37,17 +40,17 @@ Abbreviated as `:nh` in Espanso.
 
 ## env Directory
 
-If you look at `flake.nix` you will notice a few files that it needs to build the system.
+`flake.nix` depends on imports and a couple other files from this directory to build the system.
 
-Create a directory named `env` with this file structure:
+`env` should look like this:
 
 ```
-.
+env
+├── .env.local.nix                  # Define local variables here
 ├── hostName                        # Name this directory after the variable set in .env.local.nix
 │   ├── default.nix
 │   └── hardware-configuration.nix
-├── userName.nix                    # Name this directory after the variable set in .env.local.nix
-└── .env.local.nix                  # Define local variables here
+└── userName.nix                    # Name this file after the variable set in .env.local.nix
 ```
 
 Here is a basic template for the `.env.local.nix` file:
