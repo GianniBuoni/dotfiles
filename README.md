@@ -3,20 +3,16 @@
 This is my current configuration for Nix OS for my machines.
 
 ![Hyprland](/themes/gruvbox-dark-medium/screenshots/2024-07-04-202851_hyprshot.png)
-
-Hyprland with terminal widows open.
+_Hyprland with terminal widows open._<br>
 
 ![Neovim](/themes/gruvbox-dark-medium/screenshots/2024-07-04-202316_hyprshot.png)
-
-Neovim Alpha greeter.
+_Neovim Alpha greeter._<br>
 
 ![Rofi](/themes/gruvbox-dark-medium/screenshots/2024-07-04-203352_hyprshot.png)
-
-Rofi featuring my custom Power Menu.
+_Rofi featuring my custom Power Menu._<br>
 
 ![Wallpaper](/themes/gruvbox-dark-medium/screenshots/2024-07-04-202945_hyprshot.png)
-
-Waybar and Wallpaper taking center stage.
+_Waybar and Wallpaper taking center stage._<br>
 
 ## Flake
 
