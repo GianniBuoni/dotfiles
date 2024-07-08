@@ -8,7 +8,7 @@ This is my current configuration for Nix OS for my machines.
 
 Flake is setup such that System and User specific variables will determine which files get imported into the system.
 
-These variables are defined in an untracked local file called `env.local.nix`. To work around some of the rules around building Nix and Home-Manager systems within a git repo, the `env.local.nix` file has to be staged and unstaged before and after building respectively:
+These variables are defined in an untracked local file in the `/env` directory. To work around some of the rules around building Nix and Home-Manager systems within a git repo, the `/env` has to be staged and unstaged before and after building respectively:
 
 ```
 git add . -Nf && sudo nixos-rebuild switch --flake .
@@ -22,6 +22,8 @@ Then to commit:
 git reset && git add . && git commit -m "..."
 ```
 
+Abbreviated as `:gc` in Espanso.
+
 ## Home Manager
 
 Home manager is setup as it's own separate module for potential use with work Mac.
@@ -31,7 +33,7 @@ Also, it's separated from the system in order to not pollute my system generatio
 git add . -Nf && home-manager switch --flake .
 ```
 
-This command is abbreviated as `:nh` in Espanso.
+Abbreviated as `:nh` in Espanso.
 
 ## env Directory
 
@@ -45,7 +47,7 @@ Create a directory named `env` with this file structure:
 │   ├── default.nix
 │   └── hardware-configuration.nix
 ├── userName.nix                    # Name this directory after the variable set in .env.local.nix
-└── .env.local.nix
+└── .env.local.nix                  # Define local variables here
 ```
 
 Here is a basic template for the `.env.local.nix` file:
@@ -74,7 +76,7 @@ Here is a basic template for the `.env.local.nix` file:
 }
 ```
 
-**NOTE:** the `/hosts` and `/users` folder also require their own local setup. Look at the README's for those folders to get everything to work.
+Also, both `/hostName/default.nix` and `userName.nix` files are just lists of imported modules.
 
 ## Programs
 
