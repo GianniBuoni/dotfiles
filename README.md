@@ -1,21 +1,8 @@
-## Hyprland To Do:
-
-- [x] Configure hyprshot
-- [x] Test hypridle
-
-## Misc
-
-- [x] Switch to GRUB bootloader
-- [x] Write starter scripts for Node Projects
-- [x] Take Screenshots for Documentation
-- [ ] Theme GRUB (Stylix did not to the greatest job for a high DPI screen)
-- [x] Theme Neovim Greeter
-
----
-
 # Nix OS!
 
 This is my current configuration for Nix OS for my machines.
+
+- [ ] Add Screenshots
 
 ## Flake
 
@@ -46,9 +33,13 @@ git add . -Nf && home-manager switch --flake .
 
 This command is abbreviated as `:nh` in Espanso.
 
-## env.local.nix
+## env Directory
 
-Here is a basic template for this file:
+If you look at `flake.nix` you will notice a few files that it needs to build the system.
+
+Create a creictory named `env` with this file structure:
+
+Here is a basic template for the `.env.local.nix` file:
 
 ```
 {

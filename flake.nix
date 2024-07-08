@@ -32,7 +32,7 @@
     stylix,
     ...
   } @ inputs: let
-    inherit (import ./.env.local.nix) systemSettings userSettings;
+    inherit (import ./env/.env.local.nix) systemSettings userSettings;
     pkgs = nixpkgs.legacyPackages.${systemSettings.system};
   in {
     # Configuration for system host
@@ -43,7 +43,7 @@
         inherit systemSettings;
       };
       modules = [
-        ./hosts
+        ./env/${systemSettings.hostName}
         stylix.nixosModules.stylix
       ];
     };
@@ -56,7 +56,7 @@
         inherit systemSettings;
       };
       modules = [
-        ./users/home/${userSettings.userName}.nix
+        ./env/${userSettings.userName}.nix
         stylix.homeManagerModules.stylix
         nixvim.homeManagerModules.nixvim
         inputs.ags.homeManagerModules.default
