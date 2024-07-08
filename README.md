@@ -37,7 +37,16 @@ This command is abbreviated as `:nh` in Espanso.
 
 If you look at `flake.nix` you will notice a few files that it needs to build the system.
 
-Create a creictory named `env` with this file structure:
+Create a directory named `env` with this file structure:
+
+```
+.
+├── hostName                        # Name this directory after the variable set in .env.local.nix
+│   ├── default.nix
+│   └── hardware-configuration.nix
+├── userName.nix                    # Name this directory after the variable set in .env.local.nix
+└── .env.local.nix
+```
 
 Here is a basic template for the `.env.local.nix` file:
 
