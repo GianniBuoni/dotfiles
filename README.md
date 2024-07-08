@@ -6,10 +6,10 @@ This is my current configuration for Nix OS for my machines.
 _Hyprland with terminal widows open._<br><br>
 
 ![Neovim](/themes/gruvbox-dark-medium/screenshots/2024-07-04-202316_hyprshot.png)
-_Neovim Alpha greeter._<br><br>
+_Alpha greeter for Neovim._<br><br>
 
 ![Rofi](/themes/gruvbox-dark-medium/screenshots/2024-07-04-203352_hyprshot.png)
-_Rofi featuring my custom Power Menu._<br><br>
+_Rofi, featuring my custom Power Menu._<br><br>
 
 ![Wallpaper](/themes/gruvbox-dark-medium/screenshots/2024-07-04-202945_hyprshot.png)
 _Waybar and Wallpaper taking center stage._<br><br>
