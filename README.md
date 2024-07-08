@@ -2,7 +2,21 @@
 
 This is my current configuration for Nix OS for my machines.
 
-- [ ] Add Screenshots
+![Hyprland](/themes/gruvbox-dark-medium/screenshots/2024-07-04-202851_hyprshot.png)
+
+Hyprland with terminal widows open.
+
+![Neovim](/themes/gruvbox-dark-medium/screenshots/2024-07-04-202316_hyprshot.png)
+
+Neovim Alpha greeter.
+
+![Rofi](/themes/gruvbox-dark-medium/screenshots/2024-07-04-203352_hyprshot.png)
+
+Rofi featuring my custom Power Menu.
+
+![Wallpaper](/themes/gruvbox-dark-medium/screenshots/2024-07-04-202945_hyprshot.png)
+
+Waybar and Wallpaper taking center stage.
 
 ## Flake
 
