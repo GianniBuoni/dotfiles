@@ -3,7 +3,7 @@
 This is my current configuration for Nix OS for my machines.
 
 ![Hyprland](/themes/gruvbox-dark-medium/screenshots/2024-07-04-202851_hyprshot.png)
-_Hyprland with terminal widows open._<br><br>
+_Hyprland with terminal windows open._<br><br>
 
 ![Neovim](/themes/gruvbox-dark-medium/screenshots/2024-07-04-202316_hyprshot.png)
 _Alpha greeter for Neovim._<br><br>
@@ -63,6 +63,8 @@ env
 └── userName.nix                    # Name this file after the variable set in .env.local.nix
 ```
 
+Also, both `/hostName/default.nix` and `userName.nix` files are just lists of imported modules.
+
 Here is a basic template for the `.env.local.nix` file:
 
 ```
@@ -89,8 +91,6 @@ Here is a basic template for the `.env.local.nix` file:
 }
 ```
 
-Also, both `/hostName/default.nix` and `userName.nix` files are just lists of imported modules.
-
 ## Programs
 
 - Window Manager - [Hyprland](https://hyprland.org/)
@@ -99,6 +99,7 @@ Also, both `/hostName/default.nix` and `userName.nix` files are just lists of im
 - File Manager - [Yazi](https://yazi-rs.github.io/)
 - Bar - [Waybar](https://github.com/Alexays/Waybar)
 - Launcher & Power Menu - [Rofi](https://davatorium.github.io/rofi/)
+- Text Expansion - [Espanso](https://espanso.org/)
 
 ## Useful Resources
 
