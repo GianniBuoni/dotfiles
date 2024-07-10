@@ -13,6 +13,10 @@
           mkWorkspace
           "development"
         )
+        (
+          mkWorkspace
+          "personal"
+        )
       ];
     };
     opts = {
