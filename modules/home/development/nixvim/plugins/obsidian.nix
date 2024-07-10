@@ -6,7 +6,7 @@
       settings.workspaces = let
         mkWorkspace = name: {
           inherit name;
-          path = "~/Documents/vault/${name}";
+          path = "~/Documents/vaults/${name}";
         };
       in [
         (
