@@ -60,7 +60,7 @@ env
 └── imports
     ├── configuration.nix           # Import list for system configurations
     ├── hardware-configuration.nix
-    └── configuration.nix           # Import list for home-manager
+    └── home.nix           # Import list for home-manager
 ```
 
 Here is a basic template for the `env.local.nix` file:
