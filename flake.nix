@@ -2,40 +2,28 @@
   description = "Gianni Buoni's NixOS Flake";
 
   inputs = {
-    # Nix OS unstable branch selected as source for all packages
     nixpkgs.url = "nixpkgs/nixos-unstable";
 
-    # ----- HOME MANAGER ----- #
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # ------ STYLIX ----- #
     stylix.url = "github:danth/stylix";
 
-    # ----- NIX VIM ----- #
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # ---- AGS WIDGETS ----- #
     ags.url = "github:Aylur/ags";
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    home-manager,
-    nixvim,
-    stylix,
-    ...
-  } @ inputs: let
-    inherit (import ./env/.env.local.nix) systemSettings userSettings;
+  outputs = {nixpkgs, ...} @ inputs: let
+    inherit (import ./env/env.local.nix) systemSettings userSettings;
     pkgs = nixpkgs.legacyPackages.${systemSettings.system};
   in {
-    # Configuration for system host
+    # Configuration for Linux hosts
     nixosConfigurations.${systemSettings.hostName} = nixpkgs.lib.nixosSystem {
       inherit (systemSettings) system;
       specialArgs = {
@@ -43,22 +31,22 @@
         inherit systemSettings;
       };
       modules = [
-        ./env/${systemSettings.hostName}
-        stylix.nixosModules.stylix
+        ./env/imports/configuration.nix
+        inputs.stylix.nixosModules.stylix
       ];
     };
 
     # Configuration for standalone home-manager
-    homeConfigurations.${userSettings.userName} = home-manager.lib.homeManagerConfiguration {
+    homeConfigurations.${userSettings.userName} = inputs.home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
       extraSpecialArgs = {
         inherit userSettings;
         inherit systemSettings;
       };
       modules = [
-        ./env/${userSettings.userName}.nix
-        stylix.homeManagerModules.stylix
-        nixvim.homeManagerModules.nixvim
+        ./env/imports/home.nix
+        inputs.stylix.homeManagerModules.stylix
+        inputs.nixvim.homeManagerModules.nixvim
         inputs.ags.homeManagerModules.default
       ];
     };

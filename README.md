@@ -56,16 +56,14 @@ Abbreviated as `:nh` in Espanso.
 
 ```
 env
-├── .env.local.nix                  # Define local variables here
-├── hostName                        # Name this directory after the variable set in .env.local.nix
-│   ├── default.nix
-│   └── hardware-configuration.nix
-└── userName.nix                    # Name this file after the variable set in .env.local.nix
+├── env.local.nix                   # Define local variables here
+└── imports
+    ├── configuration.nix           # Import list for system configurations
+    ├── hardware-configuration.nix
+    └── configuration.nix           # Import list for home-manager
 ```
 
-Also, both `/hostName/default.nix` and `userName.nix` files are just lists of imported modules.
-
-Here is a basic template for the `.env.local.nix` file:
+Here is a basic template for the `env.local.nix` file:
 
 ```
 {
