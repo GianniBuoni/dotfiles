@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  userSettings,
+  ...
+}: {
   services.espanso = {
     enable = true;
     package = pkgs.espanso-wayland;
@@ -22,35 +26,20 @@
         ];
       };
       base = {
-        matches = [
-          {
-            trigger = ":date";
-            replace = "{{currentdate}}";
-          }
-          {
-            trigger = ":gg";
-            replace = "git add .";
-          }
-          {
-            trigger = ":gc";
-            replace = "git reset && git add . && git commit -m '";
-          }
-          {
-            trigger = ":gp";
-            replace = "git push origin ";
-          }
-          {
-            trigger = ":gs";
-            replace = "git status";
-          }
-          {
-            trigger = ":nn";
-            replace = "git add . -Nf && sudo nixos-rebuild switch --flake .";
-          }
-          {
-            trigger = ":nh";
-            replace = "git add . -Nf && home-manager switch --flake .";
-          }
+        matches = let
+          mkMatch = trigger: replace: {
+            inherit trigger replace;
+          };
+        in [
+          # Normal
+          (mkMatch ":date" "{{currentdate}}")
+          (mkMatch ":na" "${userSettings.name}")
+
+          # Git
+          (mkMatch ":gg" "git add .")
+          (mkMatch ":gc" "git add . && git commit -m '")
+          (mkMatch ":gp" "git push origin ")
+          (mkMatch ":gs" "git status")
         ];
       };
     };

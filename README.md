@@ -1,6 +1,6 @@
 # Nix OS!
 
-This is my current configuration for Nix OS for my machines.
+This is my current Nix OS configuration for my machines.
 
 ![Hyprland](/themes/gruvbox-dark-medium/screenshots/2024-07-04-202851_hyprshot.png)
 _Hyprland with terminal windows open._<br><br>
@@ -16,39 +16,31 @@ _Waybar and Wallpaper taking center stage._<br><br>
 
 ## Flake
 
-Flake is setup such that System and User specific variables are defined in an easy to reach file and get propagated to all the modules that depend on them.
+The flake is setup such that System and User specific variables are defined in an easy to reach local file, which is hard linked to the `/env` directory. (_See the [/env Directory](#/env-directory) section for more info._)
 
-These defined variables are stored in an untracked local file in the `/env` directory. See the [env Directory](#env-directory) section for more info.
+These variables then get propagated to all the modules that depend on them.
 
-To work around some of the rules that Nix imposes when building Nix and Home-Manager systems within a git repo, `/env` has to be force staged and them unstaged before and after building respectively.
+To work around some of the Nix imposed rules when building Nix and Home-Manager systems within a git repo, `/env` has to be force staged and them unstaged before and after building respectively.
 
 Buidlding the system:
 
 ```
-git add . -Nf && sudo nixos-rebuild switch --flake .
+git add . -Nf && sudo nixos-rebuild switch --flake . && git reset
 ```
 
-This command is abbreviated as `:nn` in Espanso.
-
-Repo is then reset so as not to commit local files:
-
-```
-git reset && git add . && git commit -m "..."
-```
-
-Abbreviated as `:gc` in Espanso.
+This command is abbreviated as `nn` in a custom shell script.
 
 ## Home Manager
 
-Home manager is setup as it's own separate module.
+Home manager is setup as it's own separate module. Like the system, it too needs to stage and unstage the `/env directory`, too.
 
 ```
-git add . -Nf && home-manager switch --flake .
+git add . -Nf && home-manager switch --flake . && git reset
 ```
 
-Abbreviated as `:nh` in Espanso.
+Abbreviated as `nh` in a custom shell script..
 
-## env Directory
+## /env Directory
 
 `flake.nix` depends on imports and a couple other files from this directory to build the system.
 
