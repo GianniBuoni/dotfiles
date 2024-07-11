@@ -20,7 +20,7 @@ The flake is setup such that System and User specific variables are defined in a
 
 These variables then get propagated to all the modules that depend on them.
 
-To work around some of the Nix imposed rules when building Nix and Home-Manager systems within a git repo, `/env` has to be force staged and them unstaged before and after building respectively.
+To work around some of the Nix imposed rules when building Nix and Home-Manager systems within a git repo, `/env` has to be force staged and then unstaged before and after building respectively.
 
 Buidlding the system:
 
@@ -32,7 +32,7 @@ This command is abbreviated as `nn` in a custom shell script.
 
 ## Home Manager
 
-Home manager is setup as it's own separate module. Like the system, it too needs to stage and unstage the `/env directory`, too.
+Home manager is setup as it's own separate module. Like the system, it needs to stage and unstage the `/env directory`, too.
 
 ```
 git add . -Nf && home-manager switch --flake . && git reset
@@ -42,9 +42,9 @@ Abbreviated as `nh` in a custom shell script..
 
 ## /env Directory
 
-`flake.nix` depends on imports and a couple other files from this directory to build the system.
+`flake.nix` depends on imports from this directory to build the System and Home Manager.
 
-`env` should look like this:
+`/env` should look like this:
 
 ```
 env
