@@ -16,29 +16,29 @@ _Waybar and Wallpaper taking center stage._<br><br>
 
 ## Flake
 
-The flake is setup such that System and User specific variables are defined in an easy to reach local file, which is hard linked to the `/env` directory. (_See the [/env Directory](#/env-directory) section for more info._)
+The flake is setup such that System and User specific variables are defined in an easy to reach local file, which is hard linked to the `/env` directory. (_See the [/env Directory](#env-directory) section for more info._)
 
 These variables then get propagated to all the modules that depend on them.
 
-To work around some of the Nix imposed rules when building Nix and Home-Manager systems within a git repo, `/env` has to be force staged and then unstaged before and after building respectively.
+Nix has its own set of limitations when building in a git repo. To work around this, `/env` has to be force staged and then unstaged before and after building respectively.
 
-Buidlding the system:
+Building the system:
 
 ```
 git add . -Nf && sudo nixos-rebuild switch --flake . && git reset
 ```
 
-This command is abbreviated as `nn` in a custom shell script.
+This command is abbreviated as `nn` in a custom shell script.<br><br>
 
 ## Home Manager
 
-Home manager is setup as it's own separate module. Like the system, it needs to stage and unstage the `/env directory`, too.
+Home Manager is setup as it's own separate module. Like the System, it needs to stage and unstage the `/env directory`, too.
 
 ```
 git add . -Nf && home-manager switch --flake . && git reset
 ```
 
-Abbreviated as `nh` in a custom shell script..
+Abbreviated as `nh` in a custom shell script.<br><br>
 
 ## /env Directory
 
@@ -80,6 +80,8 @@ Here is a basic template for the `env.local.nix` file:
   };
 }
 ```
+
+<br><br>
 
 ## Programs
 
