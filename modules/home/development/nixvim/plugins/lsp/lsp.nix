@@ -3,15 +3,17 @@
     # ----- TREESITTER: Language Parsers -----#
     treesitter = {
       enable = true;
-      indent = true;
-      ensureInstalled = [
-        "html"
-        "javascript"
-        "markdown"
-        "nix"
-        "typescript"
-        "tsx"
-      ];
+      settings = {
+        indent.enable = true;
+        ensureInstalled = [
+          "html"
+          "javascript"
+          "markdown"
+          "nix"
+          "typescript"
+          "tsx"
+        ];
+      };
     };
 
     # ----- LSP: Language Server Protocol ----- #
