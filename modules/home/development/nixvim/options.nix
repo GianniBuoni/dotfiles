@@ -18,5 +18,6 @@
     cursorline = true; # Show which line your cursor is on
     scrolloff = 10; # Number of lines to keep above and below the cursor
     showmode = false; # Lualine takes care of showing the mode
+    foldenable = false;
   };
 }
