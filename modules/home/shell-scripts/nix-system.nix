@@ -5,9 +5,13 @@
   nh = pkgs.writeShellScriptBin "nh" ''
     git add . -Nf && home-manager switch --flake . && git reset
   '';
+  nb = pkgs.writeShellScriptBin "nb" ''
+    git add . -Nf && sudo nixos-rebuild boot --flake . && git reset
+  '';
 in {
-  environment.systemPackages = [
+  home.packages = [
     nn
     nh
+    nb
   ];
 }
