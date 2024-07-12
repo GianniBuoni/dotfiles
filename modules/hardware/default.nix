@@ -12,10 +12,13 @@
     };
   };
 
-  # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
+  hardware = {
+    graphics = {
+      enable = true;
+      enable32Bit = true; # Enable Open GL
+    };
+    pulseaudio.enable = false; # Enable sound with pipewire.
+  };
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
+  security.rtkit.enable = true;
 }
