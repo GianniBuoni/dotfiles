@@ -11,6 +11,7 @@
     tmux = {
       enable = true;
       clock24 = true;
+      shell = "${pkgs.zsh}/bin/zsh";
       plugins = with pkgs; [
         tmuxPlugins.power-theme
         tmuxPlugins.vim-tmux-navigator
