@@ -7,9 +7,8 @@
     tmux split-window -h -b -l 75%
     tmux send-keys -t "${sn}:nvim" "nvim" Enter
 
-    tmux new-window -a -t "${sn}" -n "env"
-    tmux send-keys -t "env" "cd ~/${sn}-env" Enter
-    tmux send-keys -t "env" "lazygit" Enter
+    tmux new-window -a -t "${sn}" -n "lazygit"
+    tmux send-keys -t "${sn}:lazygit" "lazygit" Enter
   '';
   ddo = pkgs.writeShellScriptBin "ddo" ''
     tmux attach -t "${sn}:nvim"
