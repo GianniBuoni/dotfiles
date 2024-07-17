@@ -9,6 +9,7 @@
 
     tmux new-window -a -t "${sn}" -n "env"
     tmux send-keys -t "env" "cd ~/${sn}-env" Enter
+    tmux send-keys -t "env" "lazygit" Enter
   '';
   ddo = pkgs.writeShellScriptBin "ddo" ''
     tmux attach -t "${sn}:nvim"
