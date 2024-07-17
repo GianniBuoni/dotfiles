@@ -34,12 +34,6 @@
           # Normal
           (mkMatch ":date" "{{currentdate}}")
           (mkMatch ":na" "${userSettings.name}")
-
-          # Git
-          (mkMatch ":gg" "git add .")
-          (mkMatch ":gc" "git add . && git commit -m '")
-          (mkMatch ":gp" "git push origin ")
-          (mkMatch ":gs" "git status")
         ];
       };
     };

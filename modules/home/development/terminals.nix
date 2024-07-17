@@ -34,6 +34,7 @@
         "vi" = "nvim";
         "vim" = "nvim";
         "yy" = "yazi";
+        "llg" = "lazygit";
       };
       syntaxHighlighting.enable = true;
       autosuggestion.enable = true;

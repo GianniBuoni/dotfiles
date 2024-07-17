@@ -81,7 +81,7 @@ Here is a basic template for the `env.local.nix` file:
 }
 ```
 
-<br><br>
+<br>
 
 ## Programs
 
