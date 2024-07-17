@@ -6,7 +6,7 @@
     "$menu" = "rofi -show drun";
     "$run" = "rofi -show run";
     "$web" = "firefox";
-    "$dotfiles" = "kitty -e dotfiles-open";
+    "$dotfiles" = "kitty -e ddo";
 
     # ----- PROGRAM KEYBINDINGS ----- #
     bind = [
@@ -23,7 +23,7 @@
 
     # --- AUTOSTART --- #
     exec-once = [
-      "hyprpaper & waybar & mako & dotfiles-session"
+      "hyprpaper & waybar & mako & dds && $dotfiles"
       "[workspace 2 silent] $web"
     ];
   };
