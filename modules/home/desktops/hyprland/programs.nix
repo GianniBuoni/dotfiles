@@ -23,7 +23,7 @@
 
     # --- AUTOSTART --- #
     exec-once = [
-      "hyprpaper & waybar & mako & dds && $dotfiles"
+      "hyprpaper & waybar & mako"
       "[workspace 2 silent] $web"
     ];
   };
