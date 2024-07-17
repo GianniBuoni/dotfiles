@@ -2,11 +2,11 @@
   sn = "vaults";
   oop = pkgs.writeShellScriptBin "oop" ''
     cd ~/Documents/${sn}/personal
-    vi
+    nvim
   '';
   ood = pkgs.writeShellScriptBin "ood" ''
-    cd ~/Documents/${sn}/personal
-    vi
+    cd ~/Documents/${sn}/development
+    nvim
   '';
 in {
   home.packages = [
