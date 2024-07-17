@@ -1,17 +1,21 @@
 {pkgs, ...}: let
   sn = "dotfiles";
-  dotfiles-session = pkgs.writeShellScriptBin "dotfiles-session" ''
+  dds = pkgs.writeShellScriptBin "dds" ''
     cd ~/${sn}
     tmux new-session -d -s "${sn}"
-    tmux new-window -t "${sn}" -n "nvim"
+    tmux rename-window "nvim"
+    tmux split-window -h -b -l 75%
     tmux send-keys -t "${sn}:nvim" "nvim" Enter
+
+    tmux new-window -a -t "${sn}" -n "env"
+    tmux send-keys -t "env" "cd ~/${sn}-env" Enter
   '';
-  dotfiles-open = pkgs.writeShellScriptBin "dotfiles-open" ''
-    tmux attach -t "${sn}"
+  ddo = pkgs.writeShellScriptBin "ddo" ''
+    tmux attach -t "${sn}:nvim"
   '';
 in {
   home.packages = [
-    dotfiles-session
-    dotfiles-open
+    dds
+    ddo
   ];
 }
