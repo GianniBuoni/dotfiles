@@ -4,6 +4,7 @@
   ...
 }: {
   imports = [
+    ./autostart/${systemSettings.formFactor}.nix
     ./monitors/${systemSettings.formFactor}.nix
     ./env-variables.nix
     ./hypridle.nix

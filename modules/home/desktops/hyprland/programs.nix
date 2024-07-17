@@ -20,11 +20,5 @@
       "$mod, SPACE, exec, $menu"
       "ALT, SPACE, exec, $run"
     ];
-
-    # --- AUTOSTART --- #
-    exec-once = [
-      "hyprpaper & waybar & mako"
-      "[workspace 2 silent] $web"
-    ];
   };
 }
