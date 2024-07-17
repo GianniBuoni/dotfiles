@@ -3,22 +3,8 @@
   systemSettings,
   ...
 }: {
-  # Bootloader.
-  boot = {
-    loader = {
-      grub = {
-        enable = true;
-        efiSupport = true;
-        device = "nodev";
-      };
-      efi = {
-        canTouchEfiVariables = true;
-      };
-    };
-
-    # Linux kernel
-    kernelPackages = pkgs.linuxPackages_latest;
-  };
+  # Linux kernel
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # Host Name and Networking
   networking.hostName = systemSettings.hostName;
