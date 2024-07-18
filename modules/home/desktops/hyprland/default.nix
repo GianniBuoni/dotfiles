@@ -1,11 +1,6 @@
-{
-  systemSettings,
-  userSettings,
-  ...
-}: {
+{userSettings, ...}: {
   imports = [
-    ./autostart/${systemSettings.formFactor}.nix
-    ./monitors/${systemSettings.formFactor}.nix
+    ./monitors
     ./env-variables.nix
     ./hypridle.nix
     ./hyprlock.nix

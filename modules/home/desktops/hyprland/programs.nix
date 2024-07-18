@@ -1,4 +1,4 @@
-{
+{systemSettings, ...}: {
   wayland.windowManager.hyprland.settings = {
     # ----- PROGRAM VARIABLES ----- #
     "$terminal" = "kitty";
@@ -20,5 +20,16 @@
       "$mod, SPACE, exec, $menu"
       "ALT, SPACE, exec, $run"
     ];
+
+    exec-once =
+      [
+        "hyprpaper & waybar & mako"
+        "[workspace 2 silent] $web"
+      ]
+      ++ (
+        if (systemSettings.formFactor == "laptop")
+        then ["dds && $dotfiles"]
+        else ["dds"]
+      );
   };
 }
