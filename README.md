@@ -1,3 +1,10 @@
+To Do:
+
+- [ ] Figure out how to make case statements for options (not just lists).
+- [ ] Refactor import statements to deternime each machines imports
+- [ ] Remove dependence on import files in `/env` directory
+- [ ] Flatten out `env` repo to have one single branch with all of my machines variables
+
 # Nix OS!
 
 This is my current Nix OS configuration for my machines.
