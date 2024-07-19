@@ -1,7 +1,15 @@
-{
-  imports = [
-    ./proton.nix
-    ./moonlignt.nix
-    ./steam.nix
-  ];
+{systemSettings, ...}: {
+  imports =
+    [
+      ./core-pograms.nix
+      ./proton.nix
+      ./moonlignt.nix
+    ]
+    ++ (
+      if (systemSettings.formFactor == "desktop")
+      then [
+        ./sunshine.nix
+      ]
+      else []
+    );
 }
