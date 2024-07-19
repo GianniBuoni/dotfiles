@@ -19,7 +19,9 @@
         then [
           "desc:Samsung Display Corp. ATNA40CU05-0,2880x1800@120.0,4320x0,2.0"
         ]
-        else []
+        else [
+          "desc:XMD Mi TV,3840x2160@60.0,1920x0,1.6,mirror,DP-3"
+        ]
       );
     bindl =
       if (systemSettings.formFactor == "laptop")
