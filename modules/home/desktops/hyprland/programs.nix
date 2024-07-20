@@ -29,10 +29,7 @@
       ++ (
         if (systemSettings.formFactor == "laptop")
         then ["dds && $dotfiles"]
-        else [
-          "dds"
-          "[workspace 3 silent] steam"
-        ]
+        else ["dds && steam"]
       );
   };
 }
