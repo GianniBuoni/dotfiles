@@ -1,8 +1,5 @@
 To Do:
 
-- [ ] Figure out how to make case statements for options (not just lists).
-- [ ] Refactor import statements to deternime each machines imports
-- [ ] Remove dependence on import files in `/env` directory
 - [ ] Flatten out `env` repo to have one single branch with all of my machines variables
 
 # Nix OS!
@@ -23,11 +20,11 @@ _Waybar and Wallpaper taking center stage._<br><br>
 
 ## Flake
 
-The flake is setup such that System and User specific variables are defined in an easy to reach local file, which is hard linked to the `/env` directory. (_See the [/env Directory](#env-directory) section for more info._)
+The flake is setup such that System and User specific variables are defined in an easy to reach local file, which is hard linked as the `.env.local.nix` file. (_See the [env File](#env-file) section for more info._)
 
 These variables then get propagated to all the modules that depend on them.
 
-Nix has its own set of limitations when building in a git repo. To work around this, `/env` has to be force staged and then unstaged before and after building respectively.
+Nix has its own set of limitations when building in a git repo. To work around this, `.env.local.nix` has to be force staged and then unstaged before and after building respectively.
 
 Building the system:
 
@@ -39,7 +36,7 @@ This command is abbreviated as `nn` in a custom shell script.<br><br>
 
 ## Home Manager
 
-Home Manager is setup as it's own separate module. Like the System, it needs to stage and unstage the `/env directory`, too.
+Home Manager is setup as it's own separate module. Like the System, it needs to stage and unstage `.env.local.nix`, too.
 
 ```
 git add . -Nf && home-manager switch --flake . && git reset
@@ -47,20 +44,9 @@ git add . -Nf && home-manager switch --flake . && git reset
 
 Abbreviated as `nh` in a custom shell script.<br><br>
 
-## /env Directory
+## env File
 
-`flake.nix` depends on imports from this directory to build the System and Home Manager.
-
-`/env` should look like this:
-
-```
-env
-├── env.local.nix                   # Define local variables here
-└── imports
-    ├── configuration.nix           # Import list for system configurations
-    ├── hardware-configuration.nix
-    └── home.nix                    # Import list for home-manager
-```
+`flake.nix` depends on variables from this file to build the System and Home Manager.
 
 Here is a basic template for the `env.local.nix` file:
 
@@ -98,7 +84,7 @@ Here is a basic template for the `env.local.nix` file:
 - File Manager - [Yazi](https://yazi-rs.github.io/)
 - Bar - [Waybar](https://github.com/Alexays/Waybar)
 - Launcher & Power Menu - [Rofi](https://davatorium.github.io/rofi/)
-- Text Expansion - [Espanso](https://espanso.org/)
+- Text Expansion - [Espanso](https://espanso.org/)<br><br>
 
 ## Useful Resources
 
