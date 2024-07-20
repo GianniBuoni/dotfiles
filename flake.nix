@@ -20,7 +20,7 @@
   };
 
   outputs = {nixpkgs, ...} @ inputs: let
-    inherit (import ./env/env.local.nix) systemSettings userSettings;
+    inherit (import ./env.local.nix) systemSettings userSettings;
     pkgs = nixpkgs.legacyPackages.${systemSettings.system};
   in {
     # Configuration for Linux hosts
@@ -31,7 +31,7 @@
         inherit systemSettings;
       };
       modules = [
-        ./env/imports/configuration.nix
+        ./modules
         inputs.stylix.nixosModules.stylix
       ];
     };
@@ -44,7 +44,7 @@
         inherit systemSettings;
       };
       modules = [
-        ./env/imports/home.nix
+        ./modules/home
         inputs.stylix.homeManagerModules.stylix
         inputs.nixvim.homeManagerModules.nixvim
         inputs.ags.homeManagerModules.default

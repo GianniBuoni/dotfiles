@@ -2,6 +2,6 @@
   imports = [
     ./hyprland
     ./rofi
-    ./swaylock
+    # Note: waybar needs to be imported higher up for stylix to properly target it
   ];
 }

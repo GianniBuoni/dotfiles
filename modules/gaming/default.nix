@@ -1,9 +1,7 @@
 {systemSettings, ...}: {
   imports =
     [
-      ./core-pograms.nix
-      ./proton.nix
-      ./moonlignt.nix
+      ./main.nix
     ]
     ++ (
       if (systemSettings.formFactor == "desktop")

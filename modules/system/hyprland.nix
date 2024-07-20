@@ -1,8 +1,6 @@
 # NOTE: This module only enables system-wide services for Hyprland.
+# Please, take a look at the home-manager modules
 {
-  imports = [
-    ../waybar/waybar.nix
-  ];
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;

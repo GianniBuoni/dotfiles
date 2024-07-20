@@ -1,18 +1,21 @@
-{userSettings, ...}: {
-  home = {
-    username = userSettings.userName;
-    homeDirectory = "/home/${userSettings.userName}";
-
-    stateVersion = "24.05";
-  };
-
-  programs.home-manager.enable = true;
-  fonts.fontconfig.enable = true; # Allow Home Manager to install fonts
-
-  nixpkgs = {
-    config = {
-      allowUnfree = true;
-      allowUnfreePredicate = _: true;
-    };
-  };
+{systemSettings, ...}: {
+  imports =
+    [
+      ./main.nix
+      ./development
+      ./productivity
+      ./shell-scripts
+      ../stylix/main.nix
+    ]
+    ++ (
+      if (systemSettings.formFactor == "handheld")
+      then [
+        ../stylix/targets.nix
+      ]
+      else [
+        ./art
+        ./desktops
+        ./desktops/waybar
+      ]
+    );
 }

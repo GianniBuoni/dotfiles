@@ -1,11 +1,4 @@
 {systemSettings, ...}: {
-  imports =
-    if (systemSettings.formFactor == "laptop")
-    then [
-      ./shell-scripts/clamshell-mode.nix
-    ]
-    else [];
-
   wayland.windowManager.hyprland.settings = {
     xwayland.force_zero_scaling = true;
     monitor =
@@ -23,6 +16,7 @@
           "desc:XMD Mi TV,3840x2160@60.0,1920x0,1.6,mirror,DP-3"
         ]
       );
+
     bindl =
       if (systemSettings.formFactor == "laptop")
       then [
