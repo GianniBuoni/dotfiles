@@ -20,7 +20,7 @@
   };
 
   outputs = {nixpkgs, ...} @ inputs: let
-    inherit (import ./env.local.nix) systemSettings userSettings;
+    inherit (import ./env/env.local.nix) systemSettings userSettings;
     pkgs = nixpkgs.legacyPackages.${systemSettings.system};
   in {
     # Configuration for Linux hosts

@@ -1,7 +1,3 @@
-To Do:
-
-- [ ] Flatten out `env` repo to have one single branch with all of my machines variables
-
 # Nix OS!
 
 This is my current Nix OS configuration for my machines.
