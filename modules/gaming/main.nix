@@ -9,6 +9,7 @@
       protonup
       mangohud
       moonlight-qt
+      discord
     ];
 
     sessionVariables = {
