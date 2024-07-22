@@ -23,13 +23,13 @@
 
     exec-once =
       [
-        "hyprpaper & waybar & mako"
+        "hyprpaper & waybar & mako & dds && $dotfiles"
         "[workspace 2 silent] $web"
       ]
       ++ (
-        if (systemSettings.formFactor == "laptop")
-        then ["dds && $dotfiles"]
-        else ["dds && steam"]
+        if (systemSettings.formFactor == "desktop")
+        then ["steam -silent"]
+        else []
       );
   };
 }
