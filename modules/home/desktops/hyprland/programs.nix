@@ -1,4 +1,4 @@
-{systemSettings, ...}: {
+{
   wayland.windowManager.hyprland.settings = {
     # ----- PROGRAM VARIABLES ----- #
     "$terminal" = "kitty";
@@ -21,15 +21,9 @@
       "ALT, SPACE, exec, $run"
     ];
 
-    exec-once =
-      [
-        "hyprpaper & waybar & mako & dds && $dotfiles"
-        "[workspace 2 silent] $web"
-      ]
-      ++ (
-        if (systemSettings.formFactor == "desktop")
-        then ["steam -silent"]
-        else []
-      );
+    exec-once = [
+      "hyprpaper & waybar & mako & dds && $dotfiles"
+      "[workspace 2 silent] $web"
+    ];
   };
 }

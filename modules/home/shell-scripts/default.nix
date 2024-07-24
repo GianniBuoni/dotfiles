@@ -10,13 +10,6 @@
       then [
         ./clamshell-mode.nix
       ]
-      else
-        (
-          if (systemSettings.formFactor == "desktop")
-          then [
-            ./streaming.nix
-          ]
-          else []
-        )
+      else []
     );
 }

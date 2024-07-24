@@ -11,8 +11,6 @@
         ./nvidia-offload.nix
         ./hardware-config/laptop.nix
       ]
-      else [
-        ./hardware-config/desktop.nix
-      ]
+      else []
     );
 }
