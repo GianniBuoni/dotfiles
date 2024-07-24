@@ -6,12 +6,12 @@
       ./development
       ./productivity
       ./shell-scripts
+      ../stylix/main.nix
     ]
     ++ (
       if (systemSettings.formFactor == "handheld")
       then []
       else [
-        ../stylix/main.nix
         ./desktops
         ./desktops/waybar
       ]
