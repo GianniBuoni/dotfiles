@@ -11,6 +11,8 @@
         ./nvidia-offload.nix
         ./hardware-config/laptop.nix
       ]
-      else []
+      else [
+        ./hardware-config/handheld.nix
+      ]
     );
 }

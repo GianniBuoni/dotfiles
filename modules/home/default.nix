@@ -2,18 +2,16 @@
   imports =
     [
       ./main.nix
+      ./art
       ./development
       ./productivity
       ./shell-scripts
-      ../stylix/main.nix
     ]
     ++ (
       if (systemSettings.formFactor == "handheld")
-      then [
-        ../stylix/targets.nix
-      ]
+      then []
       else [
-        ./art
+        ../stylix/main.nix
         ./desktops
         ./desktops/waybar
       ]
