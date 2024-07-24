@@ -12,6 +12,9 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
+  # Enable SSH
+  services.openssh.enable = true;
+
   # Enable Nix Flakes
   nix = {
     settings.experimental-features = ["nix-command" "flakes"];
