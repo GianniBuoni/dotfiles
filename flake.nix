@@ -17,6 +17,11 @@
     };
 
     ags.url = "github:Aylur/ags";
+
+    jovian = {
+      url = "github:Jovian-Experiments/Jovian-NixOS";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {nixpkgs, ...} @ inputs: let
@@ -29,6 +34,7 @@
       specialArgs = {
         inherit userSettings;
         inherit systemSettings;
+        inherit (inputs) jovian;
       };
       modules = [
         ./modules
