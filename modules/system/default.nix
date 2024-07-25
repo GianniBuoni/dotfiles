@@ -9,8 +9,8 @@
       ./users.nix
     ]
     ++ (
-      if (systemSettings.formFactor == "laptop")
-      then [./hyprland.nix]
-      else []
+      if (systemSettings.formFactor == "handheld")
+      then [./gnome-extensions.nix]
+      else [./hyprland.nix]
     );
 }

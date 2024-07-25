@@ -16,8 +16,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    ags.url = "github:Aylur/ags";
-
     jovian = {
       url = "github:Jovian-Experiments/Jovian-NixOS";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -53,7 +51,6 @@
         ./modules/home
         inputs.stylix.homeManagerModules.stylix
         inputs.nixvim.homeManagerModules.nixvim
-        inputs.ags.homeManagerModules.default
       ];
     };
   };
