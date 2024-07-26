@@ -20,6 +20,8 @@
       url = "github:Jovian-Experiments/Jovian-NixOS";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    ags.url = "github:Aylur/ags";
   };
 
   outputs = {nixpkgs, ...} @ inputs: let
@@ -51,6 +53,7 @@
         ./modules/home
         inputs.stylix.homeManagerModules.stylix
         inputs.nixvim.homeManagerModules.nixvim
+        inputs.ags.homeManagerModules.ags
       ];
     };
   };
