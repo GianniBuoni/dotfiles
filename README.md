@@ -1,7 +1,7 @@
 ## To Do:
 
 - [ ] Store local repo path as a system variable
-- [ ] Write script for generating AGS types
+- [x] Write script for generating AGS types
 - [ ] gitignore AGS types folder
 
 # Nix OS!
