@@ -12,5 +12,7 @@
       user = userSettings.userName;
       desktopSession = "gnome";
     };
+    # Make sure to enable CEF Debugging in the Steam Developer Settings!
+    decky-loader.enable = true;
   };
 }
