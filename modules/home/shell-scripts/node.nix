@@ -9,8 +9,6 @@
   '';
 in {
   home.packages = [
-    pkgs.nodejs_22
-    pkgs.corepack_22
     drizzle-starter
     trpc-starter
   ];
