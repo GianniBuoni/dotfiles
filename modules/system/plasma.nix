@@ -1,7 +1,10 @@
 {userSettings, ...}: {
   services = {
     displayManager = {
-      sddm.enable = true;
+      sddm = {
+        enable = true;
+        autoLogin = true;
+      };
       # Enable automatic login for the user.
       # autoLogin.enable = true;
       # autoLogin.user = userSettings.userName;

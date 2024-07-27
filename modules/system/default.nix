@@ -14,7 +14,6 @@
         ./gnome-extensions.nix
       ]
       else [
-        ./plasma.nix
         ./hyprland.nix
       ]
     );
