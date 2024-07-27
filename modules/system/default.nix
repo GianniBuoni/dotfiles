@@ -2,7 +2,6 @@
   imports =
     [
       ./main.nix
-      ./gnome.nix
       ./grub-boot.nix
       ./users.nix
       ./programs.nix
@@ -10,7 +9,13 @@
     ]
     ++ (
       if (systemSettings.formFactor == "handheld")
-      then [./gnome-extensions.nix]
-      else [./hyprland.nix]
+      then [
+        ./gnome.nix
+        ./gnome-extensions.nix
+      ]
+      else [
+        ./plasma.nix
+        ./hyprland.nix
+      ]
     );
 }
