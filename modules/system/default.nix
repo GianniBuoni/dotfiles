@@ -3,7 +3,6 @@
     [
       ./main.nix
       ./grub-boot.nix
-      ./users.nix
       ./programs.nix
       ./users.nix
     ]

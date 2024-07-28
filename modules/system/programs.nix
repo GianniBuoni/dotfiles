@@ -10,6 +10,7 @@
     podman
     wget
     efibootmgr
+    lshw
   ];
 
   programs.firefox.enable = true;
