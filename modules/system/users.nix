@@ -21,8 +21,14 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  # Display Manager
-  services.xserver.displayManager.gdm.enable = true;
+  services = {
+    # Display Manager
+    xserver.displayManager.gdm.enable = true;
+
+    # Enable automatic login for the user.
+    displayManager.autoLogin.enable = true;
+    displayManager.autoLogin.user = userSettings.userName;
+  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.${userSettings.userName} = {
