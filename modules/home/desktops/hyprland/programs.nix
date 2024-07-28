@@ -1,4 +1,4 @@
-{
+{systemSettings, ...}: {
   wayland.windowManager.hyprland.settings = {
     # ----- PROGRAM VARIABLES ----- #
     "$terminal" = "kitty";
@@ -13,7 +13,7 @@
       "$mod, T, exec, $terminal" # [T]erminal
       "$mod, E, exec, $fileManager" # [E]xplorer
       "$mod, F, exec, $web" # [F]irefox
-      "$mod, D, exec, $dotfiles"
+      "$mod, D, exec, $dotfiles" # [D]otflies
       "$mod, W, killactive"
       "$mod, M, exit"
       "$mod, V, togglefloating"
@@ -21,9 +21,19 @@
       "ALT, SPACE, exec, $run"
     ];
 
-    exec-once = [
-      "hyprpaper & waybar & mako & dds && $dotfiles"
-      "[workspace 2 silent] $web"
-    ];
+    exec-once =
+      [
+        "hyprpaper & waybar & mako"
+        "[workspace 2 silent] $web"
+      ]
+      ++ (
+        if (systemSettings.formFactor == "handheld")
+        then [
+          "steam -silent"
+        ]
+        else [
+          "dds && $dotfiles"
+        ]
+      );
   };
 }

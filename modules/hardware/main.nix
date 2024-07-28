@@ -30,6 +30,7 @@
       enable32Bit = true; # Enable Open GL
     };
     pulseaudio.enable = false; # Enable sound with pipewire.
+    bluetooth.enable = true;
   };
 
   security.rtkit.enable = true;
