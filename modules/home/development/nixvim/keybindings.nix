@@ -11,26 +11,33 @@ I've moved them to their respective plugin files:
       mapleader = " ";
     };
 
-    # ----- HIGHLIGHTING ----- #
+    # HIGHLIGHTING
     opts.hlsearch = true;
 
-    # ----- KEYMAPPING PROPER ----- #
-    keymaps = [
-      # ----- HIGHLIGHTING pt. 2 ----- #
-      {
-        key = "<Esc>";
-        action = "<cmd>nohlsearch<CR>";
-      }
-
-      # ----- WINDOW SHORTCUTS  ----- #
-      {
-        key = "<C-w>";
-        action = ":vnew<CR>";
-      }
-      {
-        key = "<C-w>h";
-        action = ":new<CR>";
-      }
+    # KEYMAPPING PROPER
+    keymaps = let
+      mkMapping = key: action: {
+        inherit key;
+        action = "<cmd>${action}<CR>";
+      };
+    in [
+      # HIGHLIGHTING pt. 2
+      (
+        mkMapping
+        "<Esc>"
+        "nohlsearch"
+      )
+      # WINDOW BINDINGS
+      (
+        mkMapping
+        "<C-w>"
+        "new"
+      )
+      (
+        mkMapping
+        "<C-w>v"
+        "vnew"
+      )
     ];
   };
 }
