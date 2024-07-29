@@ -8,10 +8,14 @@
   nb = pkgs.writeShellScriptBin "nb" ''
     git add . -Nf && sudo nixos-rebuild boot --flake . && git reset
   '';
+  nr = pkgs.writeShellScriptBin "nr" ''
+    git add . -Nf && nixos-rebuild switch --flake . --target-host $1 --use-remote-sudo
+  '';
 in {
   home.packages = [
     nn
     nh
     nb
+    nr
   ];
 }

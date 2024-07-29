@@ -1,6 +1,6 @@
-{jovian, ...}: {
+{inputs, ...}: {
   imports = [
-    jovian.nixosModules.jovian
+    inputs.jovian.nixosModules.jovian
     ./handheld-daemon.nix
     ./steam.nix
   ];

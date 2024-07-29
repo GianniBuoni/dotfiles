@@ -1,3 +1,4 @@
+# Note: These are manually defined targets for home manager only installs!
 {lib, ...}: {
   stylix = {
     autoEnable = lib.mkForce false;
