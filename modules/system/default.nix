@@ -10,6 +10,14 @@
     ++ (
       if (systemSettings.formFactor == "homelab")
       then []
-      else [./hyprland.nix]
+      else
+        [./hyprland.nix]
+        ++ (
+          if (systemSettings.formFactor == "laptop")
+          then [
+            ./autologin.nix
+          ]
+          else []
+        )
     );
 }

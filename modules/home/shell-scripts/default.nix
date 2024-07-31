@@ -2,13 +2,13 @@
   imports =
     [
       ./nix-system.nix
+      ./dotfiles.nix
     ]
     ++ (
       if (systemSettings.formFactor == "homelab")
       then []
       else
         [
-          ./dotfiles.nix
           ./node.nix
           ./ags-types.nix
         ]
