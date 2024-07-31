@@ -1,8 +1,9 @@
 ## To Do:
 
-- [ ] Store local repo path as a system variable
 - [x] Write script for generating AGS types
-- [ ] gitignore AGS types folder
+- [x] gitignore AGS types folder
+- [ ] Learn AGS
+- [ ] Make AGS Menu
 
 # Nix OS!
 
@@ -22,13 +23,14 @@ _Waybar and Wallpaper taking center stage._<br><br>
 
 ## Flake
 
-The flake is setup such that System and User specific variables are defined in an easy to reach local file, which is hard linked as the `.env.local.nix` file. (_See the [env File](#env-file) section for more info._)
+Hosts are defined via the `mkHost` function defined in the `outputs`'s let binding.
 
-These variables then get propagated to all the modules that depend on them.
+Special args are defined by an unanmed function defined in the gitigonred file `specialArgs.nix`.<br>
+I've gitigonred `specialArgs.nix` since it contains some personal information&mdash;I might consider seeing if sops-nix is a good solution to this problem down the road.
 
-Nix has its own set of limitations when building in a git repo. To work around this, `.env.local.nix` has to be force staged and then unstaged before and after building respectively.
+In the meanwhile, see the [specialArgs](#specialArgs) section for a template.
 
-Building the system:
+Since nix is opiniated about building flakes from within a git repo, there are a few workarounds involved with building the system:
 
 ```
 git add . -Nf && sudo nixos-rebuild switch --flake . && git reset
@@ -38,7 +40,7 @@ This command is abbreviated as `nn` in a custom shell script.<br><br>
 
 ## Home Manager
 
-Home Manager is setup as it's own separate module. Like the System, it needs to stage and unstage `.env.local.nix`, too.
+Home Manager is setup as system module. However, if you need to adapt the setup for the standalone version. One would also need to stage and unstage `specialArgs.nix`, too.
 
 ```
 git add . -Nf && home-manager switch --flake . && git reset
@@ -46,29 +48,33 @@ git add . -Nf && home-manager switch --flake . && git reset
 
 Abbreviated as `nh` in a custom shell script.<br><br>
 
-## env File
+## specialArgs
 
 `flake.nix` depends on variables from this file to build the System and Home Manager.
 
-Here is a basic template for the `env.local.nix` file:
+Here is a basic template for the `specialArgs.nix` file:
 
-```
+```nix
 {
-  systemSettings = {
-    system = "x86_64-linux";
-    hostName = "hostName";
-    formFactor = "laptop";
-    # model = "laptop-model-name";
-  };
+  hostName,
+  formFactor,
+  theme,
+  inputs,
+}: let
+  name = "fist-name";
+  lastName = "last-name";
+  font = "font-name";
+in {
+  inherit inputs
+  systemSettings = {inherit hostName formFactor};
 
   userSettings = {
+    inherit name lastName theme font;
     userName = "userName";
-    name = "your-full-name";
-    # email = "your-email";
-    # gitEmail = "your-email-for-git";
-    theme = "base-16-theme-name";
-    palette = values-of-base-16-theme-name;
-    font = "font-name";
+    fullName = name + lastName;
+    gitUser = "git-user-name";
+    gitEmail = "your-email-for-git";
+    inherit (import ./themes/${theme}) palette;
     nerdFont = font + " Nerd Font";
     cursor = "cursor-name";
     cursorPkg = "cursor-package-name";
