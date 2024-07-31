@@ -6,14 +6,12 @@
     "$menu" = "rofi -show drun";
     "$run" = "rofi -show run";
     "$web" = "firefox";
-    "$dotfiles" = "kitty -e ddo";
 
     # ----- PROGRAM KEYBINDINGS ----- #
     bind = [
       "$mod, T, exec, $terminal" # [T]erminal
       "$mod, E, exec, $fileManager" # [E]xplorer
       "$mod, F, exec, $web" # [F]irefox
-      "$mod, D, exec, $dotfiles" # [D]otflies
       "$mod, W, killactive"
       "$mod, M, exit"
       "$mod, V, togglefloating"
