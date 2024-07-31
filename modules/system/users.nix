@@ -30,10 +30,11 @@
     displayManager.autoLogin.user = userSettings.userName;
   };
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
+  # Define a user account. Don't forget to change your password with ‘passwd’.
   users.users.${userSettings.userName} = {
     isNormalUser = true;
     description = userSettings.name;
+    initialPassword = "password";
     extraGroups = ["networkmanager" "wheel" "input"];
     shell = pkgs.zsh;
   };

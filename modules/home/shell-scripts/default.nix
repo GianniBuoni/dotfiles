@@ -1,16 +1,23 @@
 {systemSettings, ...}: {
   imports =
     [
-      ./dotfiles.nix
       ./nix-system.nix
-      ./node.nix
-      ./ags-types.nix
     ]
     ++ (
-      if (systemSettings.formFactor == "laptop")
-      then [
-        ./clamshell-mode.nix
-      ]
-      else []
+      if (systemSettings.formFactor == "homelab")
+      then []
+      else
+        [
+          ./dotfiles.nix
+          ./node.nix
+          ./ags-types.nix
+        ]
+        ++ (
+          if (systemSettings.formFactor == "laptop")
+          then [
+            ./clamshell-mode.nix
+          ]
+          else []
+        )
     );
 }

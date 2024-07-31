@@ -1,9 +1,4 @@
-{
-  userSettings,
-  lib,
-  ...
-}: {
-  services.xserver.displayManager.gdm.enable = lib.mkForce false;
+{userSettings, ...}: {
   jovian = {
     hardware.has.amd.gpu = true;
     steam = {

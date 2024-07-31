@@ -3,6 +3,7 @@
     ./ags
     ./hyprland
     ./rofi
-    # Note: waybar needs to be imported higher up for stylix to properly target it
+    ./waybar
+    # Note: waybar might need to be imported higher up for stylix to properly target it
   ];
 }

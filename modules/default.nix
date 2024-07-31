@@ -1,14 +1,21 @@
 {systemSettings, ...}: {
   imports =
     [
-      ./gaming
       ./hardware
       ./system
       ./stylix
     ]
     ++ (
-      if (systemSettings.formFactor == "handheld")
-      then [./jovian]
-      else []
+      if (systemSettings.formFactor == "homelab")
+      then []
+      else
+        [
+          ./gaming
+        ]
+        ++ (
+          if (systemSettings.formFactor == "handheld")
+          then [./jovian]
+          else []
+        )
     );
 }

@@ -40,9 +40,9 @@
     };
   in {
     nixosConfigurations = {
-      baby-wizard = nixpkgs.lib.nixosSystem (mkHost "baby-wizard" "handheld" "catppuccin-mocha");
-      duck-muscles = nixpkgs.lib.nixosSystem (mkHost "duck-muscles" "laptop" "gruvbox-dark-medium");
-      sleepy-gary = nixpkgs.lib.nixosSystem (mkHost "sleepy-gary" "home-lab");
+      baby-wizard = nixpkgs.lib.nixosSystem (mkHost "baby-wizard" "handheld" "gruvbox-dark-medium");
+      duck-muscles = nixpkgs.lib.nixosSystem (mkHost "duck-muscles" "laptop" "catppuccin-mocha");
+      sleepy-gary = nixpkgs.lib.nixosSystem (mkHost "sleepy-gary" "homelab" "gruvbox-dark-medium");
     };
   };
 }

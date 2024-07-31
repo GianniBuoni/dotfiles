@@ -1,7 +1,8 @@
 {
   imports = [
     ./espanso.nix
-    ./yazi.nix
+    ./firefox.nix
+    ./kitty.nix
     ./obsidian.nix
   ];
 }

@@ -36,5 +36,6 @@
       applications = 10;
       terminal = 10;
     };
+    targets.grub.enable = false;
   };
 }

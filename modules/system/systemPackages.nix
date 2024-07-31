@@ -2,18 +2,20 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
+    curl
     distrobox
     docker
+    docker-compose
+    efibootmgr
     gh
     git
-    neovim
-    podman
-    wget
-    efibootmgr
     lshw
+    neofetch
+    neovim
+    tree
+    wget
   ];
 
-  programs.firefox.enable = true;
+  virtualisation.docker.enable = true;
   programs.zsh.enable = true;
-  virtualisation.podman.enable = true;
 }

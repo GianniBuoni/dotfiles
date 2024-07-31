@@ -1,13 +1,5 @@
 {pkgs, ...}: {
   programs = {
-    kitty = {
-      enable = true;
-      settings = {
-        window_padding_width = 10;
-        confirm_os_window_close = 0;
-      };
-    };
-
     tmux = {
       enable = true;
       clock24 = true;
@@ -46,9 +38,4 @@
     starship.enable = true;
     zoxide.enable = true;
   };
-
-  home.packages = with pkgs; [
-    neofetch
-    tree
-  ];
 }

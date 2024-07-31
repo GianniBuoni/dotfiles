@@ -9,7 +9,10 @@
     git add . -Nf && sudo nixos-rebuild boot --flake . && git reset
   '';
   nr = pkgs.writeShellScriptBin "nr" ''
-    git add . -Nf && nixos-rebuild switch --flake . --target-host $1 --use-remote-sudo
+    git add . -Nf && nixos-rebuild switch --flake . --target-host $1 --use-remote-sudo && git reset
+  '';
+  na = pkgs.writeShellScriptBin "na" ''
+    git add . -Nf && nix run github:nix-community/nixos-anywhere -- --flake $1 $2 && git reset
   '';
 in {
   home.packages = [
@@ -17,5 +20,6 @@ in {
     nh
     nb
     nr
+    na
   ];
 }
