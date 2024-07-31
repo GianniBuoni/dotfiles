@@ -31,9 +31,7 @@
         then [
           "steam -silent"
         ]
-        else [
-          "dds && $dotfiles"
-        ]
+        else []
       );
   };
 }
