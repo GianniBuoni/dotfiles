@@ -1,6 +1,7 @@
 {systemSettings, ...}: {
   imports =
     [
+      ./disk-config.nix
       ./main.nix
       ./qmk.nix
     ]
@@ -9,10 +10,7 @@
       then [
         ./nvidia.nix
         ./nvidia-offload.nix
-        ./hardware-config/laptop.nix
       ]
-      else [
-        ./hardware-config/handheld.nix
-      ]
+      else []
     );
 }

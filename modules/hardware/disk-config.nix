@@ -1,8 +1,15 @@
-# Example to create a bios compatible gpt partition
-{lib, ...}: {
+{
+  inputs,
+  modulesPath,
+  ...
+}: {
+  imports = [
+    (modulesPath + "/installer/scan/not-detected.nix")
+    inputs.disko.nixosModules.disko
+  ];
   disko.devices = {
     disk.disk1 = {
-      device = lib.mkDefault "/dev/nvme0n1";
+      device = "/dev/nvme0n1";
       type = "disk";
       content = {
         type = "gpt";

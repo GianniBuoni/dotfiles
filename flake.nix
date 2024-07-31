@@ -33,21 +33,16 @@
   };
 
   outputs = {nixpkgs, ...} @ inputs: let
-    inherit (import ./env/env.local.nix) systemSettings userSettings;
-    pkgs = nixpkgs.legacyPackages.${systemSettings.system};
-  in {
-    #Linux Host
-    nixosConfigurations.${systemSettings.hostName} = nixpkgs.lib.nixosSystem {
-      inherit (systemSettings) system;
-      specialArgs = {inherit systemSettings userSettings inputs;};
+    mkHost = hostName: formFactor: theme: {
+      system = "x86_64-linux";
+      specialArgs = import ./specialArgs.nix {inherit hostName formFactor theme inputs;};
       modules = [./modules];
     };
-
-    # Configuration for standalone home-manager
-    homeConfigurations.${userSettings.userName} = inputs.home-manager.lib.homeManagerConfiguration {
-      inherit pkgs;
-      extraSpecialArgs = {inherit systemSettings userSettings inputs;};
-      modules = [./modules/home];
+  in {
+    nixosConfigurations = {
+      baby-wizard = nixpkgs.lib.nixosSystem (mkHost "baby-wizard" "handheld" "catppuccin-mocha");
+      duck-muscles = nixpkgs.lib.nixosSystem (mkHost "duck-muscles" "laptop" "gruvbox-dark-medium");
+      sleepy-gary = nixpkgs.lib.nixosSystem (mkHost "sleepy-gary" "home-lab");
     };
   };
 }

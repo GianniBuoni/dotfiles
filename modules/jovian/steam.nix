@@ -10,7 +10,7 @@
       enable = true;
       autoStart = true;
       user = userSettings.userName;
-      desktopSession = "hyprland";
+      desktopSession = "gnome";
     };
     # Make sure to enable CEF Debugging in the Steam Developer Settings!
     decky-loader.enable = true;

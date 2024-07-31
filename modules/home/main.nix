@@ -9,10 +9,8 @@
   programs.home-manager.enable = true;
   fonts.fontconfig.enable = true; # Allow Home Manager to install fonts
 
-  nixpkgs = {
-    config = {
-      allowUnfree = true;
-      allowUnfreePredicate = _: true;
-    };
+  nixpkgs.config = {
+    allowUnfree = true;
+    allowUnfreePredicate = _: true;
   };
 }
