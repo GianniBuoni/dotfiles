@@ -2,8 +2,8 @@
   imports = [
     ./git.nix
     ./runtimes.nix
-    ./nixvim
     ./terminals.nix
+    ./nixvim
     ./yazi.nix
   ];
 }

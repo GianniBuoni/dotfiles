@@ -18,6 +18,10 @@
   # Enable Nix Flakes
   nix = {
     settings.experimental-features = ["nix-command" "flakes"];
+    settings.trusted-users = [
+      "root"
+      "@wheel"
+    ];
     optimise.automatic = true;
     gc = {
       automatic = true;
