@@ -1,4 +1,6 @@
-{
+{userSettings, ...}: let
+  inherit (userSettings) palette;
+in {
   programs.waybar.style = ''
     * {
       margin: 0;
@@ -11,7 +13,7 @@
     }
 
     .modules-left, .modules-center {
-      background-color: @base00;
+      background-color: #${palette.base00};
       border-radius: 2rem;
       margin: 5px 1rem;
       padding: 0 0.75rem;
@@ -30,51 +32,51 @@
     .modules-left #workspaces button.focused,
     .modules-left #workspaces button.active {
       border: 0;
-      color: @base09;
+      color: #${palette.base09};
     }
 
     #tray, #battery, #temperature, #bluetooth, #backlight, #pulseaudio {
       padding: 0 1rem;
-      background-color: @base00;
+      background-color: #${palette.base00};
       border-radius: 2rem;
       margin: 0 0.25rem;
     }
 
     #network {
       padding: 0 1.1rem 0 0.75rem;
-      background-color: @base00;
+      background-color: #${palette.base00};
       border-radius: 2rem;
       margin: 0 0.25rem;
     }
 
     #power-profiles-daemon {
       padding: 0 0.5rem 0 0.3rem;
-      background-color: @base00;
+      background-color: #${palette.base00};
       border-radius: 2rem;
       margin: 0 0.25rem;
     }
 
     #custom-wlogout {
       padding: 0 1rem 0 .75rem;
-      background-color: @base00;
+      background-color: #${palette.base00};
       border-radius: 2rem;
       margin: 0 0.25rem;
     }
 
     #battery {
-      color: @base0B;
+      color: #${palette.base0B};
     }
 
     #network, #bluetooth, #custom-wlogout {
-      color: @base0D;
+      color: #${palette.base0D};
     }
 
     #backlight {
-      color: @base0A;
+      color: #${palette.base0A};
     }
 
     #pulseaudio {
-      color: @base0E;
+      color: #${palette.base0E};
     }
   '';
 }
