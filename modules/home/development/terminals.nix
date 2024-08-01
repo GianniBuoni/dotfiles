@@ -25,7 +25,6 @@
         "pn" = "pnpm";
         "vi" = "nvim";
         "vim" = "nvim";
-        "yy" = "yazi";
         "llg" = "lazygit";
       };
       syntaxHighlighting.enable = true;
