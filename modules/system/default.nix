@@ -9,7 +9,7 @@
     ]
     ++ (
       if (systemSettings.formFactor == "homelab")
-      then []
+      then [./static-ip-homelab.nix]
       else
         [./hyprland.nix]
         ++ (

@@ -14,6 +14,7 @@
     neovim
     tree
     wget
+    dig
   ];
 
   virtualisation.docker.enable = true;
