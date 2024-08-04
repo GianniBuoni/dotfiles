@@ -6,7 +6,7 @@
     ]
     ++ (
       if (systemSettings.formFactor == "homelab")
-      then []
+      then [./docker.nix]
       else
         [
           ./node.nix
