@@ -12,6 +12,8 @@
     lshw
     neofetch
     neovim
+    networkmanager-openvpn
+    openvpn
     tree
     wget
     dig
