@@ -4,5 +4,6 @@
     ./firefox.nix
     ./kitty.nix
     ./obsidian.nix
+    ./syncthing.nix
   ];
 }
