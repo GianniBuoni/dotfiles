@@ -1,4 +1,4 @@
-{
+{userSettings, ...}: {
   programs.nixvim = {
     plugins.obsidian = {
       enable = true;
@@ -6,7 +6,7 @@
       settings.workspaces = let
         mkWorkspace = name: {
           inherit name;
-          path = "~/Documents/vaults/${name}";
+          path = "/home/${userSettings.userName}/vaults/${name}";
         };
       in [
         (
