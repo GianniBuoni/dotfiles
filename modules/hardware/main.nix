@@ -1,8 +1,5 @@
 {
   services = {
-    # Enable CUPS to print documents.
-    printing.enable = true;
-
     # Audio
     pipewire = {
       enable = true;
@@ -20,8 +17,9 @@
       };
     };
 
-    # Power Profiles Daemon
-    power-profiles-daemon.enable = true;
+    power-profiles-daemon.enable = true; # Power Profiles Daemon
+    printing.enable = true; # Enable CUPS to print documents.
+    udisks2.enable = true;
   };
 
   hardware = {
