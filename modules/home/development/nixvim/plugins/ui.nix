@@ -87,6 +87,13 @@
             )
             (
               mkButton
+              "o"
+              "Neotree toggle left"
+              "󰝰  File Tree"
+              "Special"
+            )
+            (
+              mkButton
               "e"
               "enew"
               "󰏌  New File"

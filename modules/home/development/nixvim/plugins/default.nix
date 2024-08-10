@@ -1,10 +1,10 @@
 {
   imports = [
+    ./integrations.nix
     ./lsp
     ./neo-tree.nix
     ./obsidian.nix
     ./telescope.nix
-    ./tmux-navigator.nix
     ./ui.nix
   ];
 }
