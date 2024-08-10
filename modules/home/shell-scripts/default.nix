@@ -3,6 +3,7 @@
     [
       ./nix-system.nix
       ./dotfiles.nix
+      ./obsidian.nix
     ]
     ++ (
       if (systemSettings.formFactor == "homelab")

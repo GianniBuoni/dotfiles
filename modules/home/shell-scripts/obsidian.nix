@@ -1,15 +1,17 @@
 {pkgs, ...}: let
   sn = "vaults";
+  oo = pkgs.writeShellScriptBin "oo" ''
+    cd ~/${sn} && nvim
+  '';
   oop = pkgs.writeShellScriptBin "oop" ''
-    cd ~/Documents/${sn}/personal
-    nvim
+    cd ~/${sn}/personal && nvim $1
   '';
   ood = pkgs.writeShellScriptBin "ood" ''
-    cd ~/Documents/${sn}/development
-    nvim
+    cd ~//${sn}/development && nvim $1
   '';
 in {
   home.packages = [
+    oo
     oop
     ood
   ];
