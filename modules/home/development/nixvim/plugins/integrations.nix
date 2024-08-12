@@ -7,13 +7,27 @@
         settings.floating_window_use_plenary = true;
       };
       tmux-navigator.enable = true;
-      #yazi.enable = true;
+      yazi = {
+        enable = true;
+        # Todo: add more settings
+      };
     };
-    keymaps = [
-      {
-        key = "<leader>ll";
-        action = "<CMD>LazyGit<CR>";
-      }
+    keymaps = let
+      mkMapping = key: action: {
+        key = "<leader>${key}";
+        action = "<CMD>${action}<CR>";
+      };
+    in [
+      (
+        mkMapping
+        "ll"
+        "LazyGit"
+      )
+      (
+        mkMapping
+        "yy"
+        "Yazi"
+      )
     ];
   };
 }

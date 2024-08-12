@@ -1,10 +1,10 @@
 {
   imports = [
-    ./bashmount.nix
+    ./filesystems.nix
     ./git.nix
-    ./runtimes.nix
-    ./terminals.nix
     ./nixvim
-    ./yazi.nix
+    ./runtimes.nix
+    ./ssh-utils.nix
+    ./terminals.nix
   ];
 }
