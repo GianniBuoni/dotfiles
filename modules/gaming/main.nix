@@ -10,6 +10,7 @@
       mangohud
       moonlight-qt
       discord
+      webcord
     ];
 
     sessionVariables = {
