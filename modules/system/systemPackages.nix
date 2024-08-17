@@ -12,6 +12,7 @@
     lshw
     neofetch
     neovim
+    pciutils
     tree
     wget
     dig
