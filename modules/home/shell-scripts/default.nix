@@ -4,6 +4,7 @@
       ./nix-system.nix
       ./dotfiles.nix
       ./obsidian.nix
+      ./rotate-monitor.nix
     ]
     ++ (
       if (systemSettings.formFactor == "homelab")
