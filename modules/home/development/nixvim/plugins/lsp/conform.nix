@@ -15,6 +15,7 @@
       */
 
       formattersByFt = {
+        astro = ["prettier"];
         html = ["prettier"];
         css = ["prettier"];
         javascript = ["prettier"];

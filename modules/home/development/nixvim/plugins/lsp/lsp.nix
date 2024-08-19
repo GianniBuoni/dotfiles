@@ -6,6 +6,7 @@
       settings = {
         indent.enable = true;
         ensureInstalled = [
+          "astro"
           "html"
           "javascript"
           "markdown"
@@ -21,6 +22,7 @@
     lsp = {
       enable = true;
       servers = {
+        astro.enable = true;
         eslint.enable = true; # ES Lint (server for a lot of things)
         html.enable = true; # HTML
         marksman.enable = true; # Markdown
@@ -32,7 +34,7 @@
         lspBuf = {
           "<leader>gd" = {
             action = "definition";
-            desc = "[G]o to [D]efinition";
+            desc = "[G]o to [D]efinition"; #codespell:ignore efinition
           };
           "<leader>ca" = {
             action = "code_action";
