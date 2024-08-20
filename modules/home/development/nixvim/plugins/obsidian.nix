@@ -22,5 +22,26 @@
     opts = {
       conceallevel = 1;
     };
+    keymaps = let
+      mkMapping = key: action: desc: {
+        key = "<leader>${key}";
+        action = "<CMD>${action}<CR>";
+        options.desc = "${desc}";
+      };
+    in [
+      (
+        mkMapping
+        "oot" #codespell:ignore ot
+        
+        "ObsidianTags"
+        "[O]bsidian [T]ags"
+      )
+      (
+        mkMapping
+        "oon"
+        "ObsidianNew"
+        "[O]bsidian [N]ew"
+      )
+    ];
   };
 }
