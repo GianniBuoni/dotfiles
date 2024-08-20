@@ -4,9 +4,10 @@
       enable = true;
       clock24 = true;
       shell = "${pkgs.zsh}/bin/zsh";
-      plugins = with pkgs; [
-        tmuxPlugins.power-theme
-        tmuxPlugins.vim-tmux-navigator
+      plugins = with pkgs.tmuxPlugins; [
+        power-theme
+        session-wizard
+        vim-tmux-navigator
       ];
       extraConfig = ''
         set-option -g mouse on

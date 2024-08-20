@@ -2,9 +2,8 @@
   imports =
     [
       ./nix-system.nix
-      ./dotfiles.nix
       ./obsidian.nix
-      ./rotate-monitor.nix
+      ./workspace.nix
     ]
     ++ (
       if (systemSettings.formFactor == "homelab")
@@ -13,6 +12,7 @@
         [
           ./node.nix
           ./ags-types.nix
+          ./rotate-monitor.nix
         ]
         ++ (
           if (systemSettings.formFactor == "laptop")
