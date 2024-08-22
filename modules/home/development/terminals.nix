@@ -27,6 +27,7 @@
         "vi" = "nvim";
         "vim" = "nvim";
         "llg" = "lazygit";
+        "t" = "tmux";
       };
       syntaxHighlighting.enable = true;
       autosuggestion.enable = true;
