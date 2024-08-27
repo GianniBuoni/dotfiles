@@ -7,10 +7,12 @@
     ]
     ++ (
       if (systemSettings.formFactor == "homelab")
-      then [./docker.nix]
+      then [
+        ./homelab.nix
+      ]
       else
         [
-          ./node.nix
+          ./docker.nix
           ./ags-types.nix
           ./rotate-monitor.nix
         ]
