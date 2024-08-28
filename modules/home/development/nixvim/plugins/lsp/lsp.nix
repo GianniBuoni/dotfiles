@@ -27,6 +27,7 @@
         html.enable = true; # HTML
         marksman.enable = true; # Markdown
         nil-ls.enable = true; # Nix
+        tailwindcss.enable = true;
         tsserver.enable = true; # Typescript and TSX
       };
       keymaps = {
