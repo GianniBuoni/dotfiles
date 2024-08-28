@@ -5,6 +5,7 @@
     "$fileManager" = "kitty -e yazi";
     "$menu" = "rofi -show drun";
     "$run" = "rofi -show run";
+    "$emoji" = "rofi -modi emoji -show emoji";
     "$web" = "firefox";
 
     # ----- PROGRAM KEYBINDINGS ----- #
@@ -17,6 +18,7 @@
       "$mod, V, togglefloating"
       "$mod, SPACE, exec, $menu"
       "ALT, SPACE, exec, $run"
+      "SHIFT, SPACE, exec, $emoji"
     ];
 
     exec-once =
