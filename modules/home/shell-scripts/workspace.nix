@@ -1,7 +1,6 @@
 {pkgs, ...}: let
   werk = pkgs.writeShellScriptBin "werk" ''
     tmux split-window -h -p 25 &&
-    tmux split-window -v &&
     tmux select-pane -t 1 &&
     nvim
   '';
