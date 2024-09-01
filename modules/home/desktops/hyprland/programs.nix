@@ -31,7 +31,9 @@
         then [
           "steam -silent"
         ]
-        else []
+        else [
+          "[workspace 1] $terminal"
+        ]
       );
   };
 }
