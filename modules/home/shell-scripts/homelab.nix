@@ -1,10 +1,16 @@
-{pkgs, ...}: let
+{
+  pkgs,
+  userSettings,
+  ...
+}: let
   homelab-up = pkgs.writeShellScriptBin "homelab-up" ''
     cd ~/dotfiles && git add . -Nf && sudo nixos-rebuild switch --flake . && git reset &&
+    cd ~/docker/core-services && dcu &&
+    dc ~/docker/iot-stack && dcu &&
     cd ~/docker/sync-stack && dcu &&
     cd ~/docker/media-stack && dcu &&
     cd ~/docker/arr-stack && dcu &&
-    cd ~/docker/website-stack/ && dcu
+    cd ~/repos/${userSettings.website} && dcu runtime
   '';
 in {
   home.packages = [

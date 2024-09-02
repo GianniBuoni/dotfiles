@@ -4,6 +4,7 @@
       ./nix-system.nix
       ./obsidian.nix
       ./workspace.nix
+      ./docker.nix
     ]
     ++ (
       if (systemSettings.formFactor == "homelab")
@@ -12,7 +13,6 @@
       ]
       else
         [
-          ./docker.nix
           ./ags-types.nix
           ./rotate-monitor.nix
         ]
