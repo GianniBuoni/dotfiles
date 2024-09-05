@@ -7,6 +7,7 @@
     docker
     docker-compose
     efibootmgr
+    exiftool
     gh
     git
     lshw
