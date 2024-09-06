@@ -12,8 +12,16 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
-  # Enable SSH
-  services.openssh.enable = true;
+  services = {
+    # Enable SSH
+    openssh.enable = true;
+    zerotierone = {
+      enable = true;
+      joinNetworks = [
+        "${systemSettings.zeroTier}"
+      ];
+    };
+  };
 
   # Enable Nix Flakes
   nix = {
