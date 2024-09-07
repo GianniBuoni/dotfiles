@@ -1,9 +1,7 @@
 {inputs, ...}: {
   imports = [
     inputs.jovian.nixosModules.jovian
-    ./handheld-daemon.nix
+    ./services.nix
     ./steam.nix
-    ./gnome.nix
-    ./gnome-extensions.nix
   ];
 }

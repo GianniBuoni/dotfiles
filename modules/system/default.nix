@@ -9,10 +9,12 @@
     ]
     ++ (
       if (systemSettings.formFactor == "homelab")
-      then [./static-ip-homelab.nix]
+      then [
+        ./static-ip-homelab.nix
+      ]
       else [
         ./hyprland.nix
-        ./autologin.nix
+        ./plasma.nix
       ]
     );
 }

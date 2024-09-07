@@ -5,7 +5,7 @@
       enable = true;
       autoStart = true;
       user = userSettings.userName;
-      desktopSession = "gnome";
+      desktopSession = "plasma";
     };
     # Make sure to enable CEF Debugging in the Steam Developer Settings!
     decky-loader.enable = true;
