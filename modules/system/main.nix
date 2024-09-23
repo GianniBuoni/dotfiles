@@ -1,6 +1,7 @@
 {
   pkgs,
   systemSettings,
+  lib,
   ...
 }: {
   # Linux kernel
@@ -31,7 +32,7 @@
       "@wheel"
     ];
     optimise.automatic = true;
-    gc = {
+    gc = lib.mkIf (systemSettings.formFactor != "homelab") {
       automatic = true;
       dates = "weekly";
       options = "--delete-older-than 7d";
