@@ -34,6 +34,7 @@
           # Normal
           (mkMatch ":date" "{{currentdate}}")
           (mkMatch ":na" "${userSettings.name}")
+          (mkMatch "--;" "—")
         ];
       };
     };
