@@ -41,7 +41,7 @@
   in {
     nixosConfigurations = {
       baby-wizard = nixpkgs.lib.nixosSystem (mkHost "baby-wizard" "handheld" "gruvbox-dark-medium");
-      duck-muscles = nixpkgs.lib.nixosSystem (mkHost "duck-muscles" "laptop" "catppuccin-mocha");
+      duck-muscles = nixpkgs.lib.nixosSystem (mkHost "duck-muscles" "laptop" "dracula");
       sleepy-gary = nixpkgs.lib.nixosSystem (mkHost "sleepy-gary" "homelab" "gruvbox-dark-medium");
     };
   };
