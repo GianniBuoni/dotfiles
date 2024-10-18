@@ -38,6 +38,12 @@ I've moved them to their respective plugin files:
         "<C-w>v"
         "vnew"
       )
+      # LSP RESTART
+      (
+        mkMapping
+        "<leader>lp"
+        "LspRestart"
+      )
     ];
   };
 }

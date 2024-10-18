@@ -1,21 +1,21 @@
 {pkgs, ...}: let
-  dcu = pkgs.writeShellScriptBin "dcu" ''
-    if [ $# -eq 0 ]; then
-      docker compose up -d
+  dc = pkgs.writeShellScriptBin "dc" ''
+    if [ $1 = "up" ]; then
+      case $# in
+        2) docker compose --profile $2 up -d ;;
+        3) docker compose --profile $2 up $3 -d ;;
+        *) docker compose up -d ;;
+      esac
     else
-      docker compose --profile $1 up -d
-    fi
-  '';
-  dcd = pkgs.writeShellScriptBin "dcd" ''
-    if [ $# -eq 0 ]; then
-      docker compose down
-    else
-      docker compose --profile $1 down
+      case $# in
+        2) docker compose --profile $2 $1 ;;
+        3) docker compose --profile $2 $1 $3 ;;
+        *) docker compose $1
+      esac
     fi
   '';
 in {
   home.packages = [
-    dcu
-    dcd
+    dc
   ];
 }
