@@ -2,7 +2,7 @@
   description = "Gianni Buoni's NixOS Flake";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/b79ce4c43f9117b2912e7dbc68ccae4539259dda";
+    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
 
     # SYSTEM AND HARDWARE MANAGEMENT
     disko = {
