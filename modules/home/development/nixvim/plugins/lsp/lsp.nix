@@ -26,9 +26,9 @@
         eslint.enable = true; # ES Lint (server for a lot of things)
         html.enable = true; # HTML
         marksman.enable = true; # Markdown
-        nil-ls.enable = true; # Nix
+        nil_ls.enable = true; # Nix
         tailwindcss.enable = true;
-        tsserver.enable = true; # Typescript and TSX
+        ts_ls.enable = true; # Typescript and TSX
       };
       keymaps = {
         silent = true;

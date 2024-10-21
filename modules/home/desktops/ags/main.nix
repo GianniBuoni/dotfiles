@@ -4,7 +4,7 @@
     configDir = ./widgets;
     extraPackages = with pkgs; [
       gtksourceview
-      webkitgtk
+      webkitgtk_4_1
       accountsservice
     ];
   };

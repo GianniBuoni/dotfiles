@@ -1,12 +1,13 @@
 {
   programs.nixvim.plugins = {
+    web-devicons.enable = true;
     indent-blankline = {
       enable = true;
       settings.indent.char = "┊";
     };
     lualine = {
       enable = true;
-      globalstatus = true;
+      settings.options.globalstatus = true;
     };
     transparent = {
       enable = true;
