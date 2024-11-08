@@ -22,8 +22,6 @@
     };
 
     # STYLING AND UI
-    ags.url = "github:Aylur/ags";
-
     stylix.url = "github:danth/stylix";
 
     nixvim = {
