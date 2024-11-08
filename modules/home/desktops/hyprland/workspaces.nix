@@ -13,6 +13,7 @@ in {
     workspace = [
       "1,monitor:desc:HAT Kamvas Pro 19 0xF0000005,default:true"
       "2,monitor:desc:Lenovo Group Limited Go Display 0x00888888,default:true"
+      "2,monitor:desc:LG Electronics LG HDR 4K 0x00039027,,default:true"
     ];
   };
 }

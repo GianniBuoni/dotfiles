@@ -23,10 +23,11 @@
       enable = true;
       servers = {
         astro.enable = true;
-        eslint.enable = true; # ES Lint (server for a lot of things)
         html.enable = true; # HTML
         marksman.enable = true; # Markdown
         nil_ls.enable = true; # Nix
+        pylsp.enable = true;
+        pyright.enable = true;
         tailwindcss.enable = true;
         ts_ls.enable = true; # Typescript and TSX
       };

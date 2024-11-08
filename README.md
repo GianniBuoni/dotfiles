@@ -1,10 +1,3 @@
-## To Do:
-
-- [x] Write script for generating AGS types
-- [x] gitignore AGS types folder
-- [ ] Learn AGS
-- [ ] Make AGS Menu
-
 # Nix OS!
 
 This is my current Nix OS configuration for my machines.
