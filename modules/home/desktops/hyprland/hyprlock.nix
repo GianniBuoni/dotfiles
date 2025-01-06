@@ -1,4 +1,8 @@
-{userSettings, ...}: {
+{
+  userSettings,
+  lib,
+  ...
+}: {
   programs.hyprlock = {
     enable = true;
 
@@ -10,7 +14,7 @@
         no_fade_in = false;
       };
 
-      background = [
+      background = lib.mkForce [
         {
           path = "screenshot";
           blur_passes = 3;
@@ -34,7 +38,7 @@
         }
       ];
 
-      input-field = [
+      input-field = lib.mkForce [
         {
           monitor = "";
           placeholder_text = "";

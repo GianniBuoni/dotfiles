@@ -13,6 +13,6 @@
     useUserPackages = true;
     extraSpecialArgs = {inherit inputs systemSettings userSettings;};
     users.${userSettings.userName} = import ../home;
-    backupFileExtension = "bak";
+    backupFileExtension = "hmbak";
   };
 }

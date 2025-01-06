@@ -1,12 +1,8 @@
 {
   services = {
     # Audio
-    pipewire = {
-      enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      pulse.enable = true;
-    };
+    pipewire.enable = false;
+    pulseaudio.enable = true; # Enable sound with ppulseaudio
 
     # Keyboard
     xserver = {
@@ -27,7 +23,6 @@
       enable = true;
       enable32Bit = true; # Enable Open GL
     };
-    pulseaudio.enable = false; # Enable sound with pipewire.
     bluetooth.enable = true;
   };
 

@@ -28,7 +28,7 @@
     fonts = {
       monospace = {
         name = userSettings.nerdFont;
-        package = pkgs.nerdfonts.override {fonts = [userSettings.font];};
+        package = pkgs.nerd-fonts.${userSettings.nerdPkg};
       };
     };
 
