@@ -8,6 +8,7 @@
     ++ (
       if (systemSettings.formFactor == "laptop")
       then [
+        ./asus.nix
         ./nvidia.nix
         ./nvidia-offload.nix
       ]
