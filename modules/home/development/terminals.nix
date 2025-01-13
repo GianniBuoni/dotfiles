@@ -9,6 +9,7 @@
         session-wizard
         vim-tmux-navigator
       ];
+      terminal = "xterm-kitty";
       extraConfig = ''
         set-option -g mouse on
         set-option -g status-position top
