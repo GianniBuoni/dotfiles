@@ -4,9 +4,11 @@
     treesitter = {
       enable = true;
       settings = {
+        highlight.enable = true;
         indent.enable = true;
         ensureInstalled = [
           "astro"
+          "go"
           "html"
           "javascript"
           "markdown"
@@ -23,6 +25,7 @@
       enable = true;
       servers = {
         astro.enable = true;
+        gopls.enable = true; # Official Go LSP
         html.enable = true; # HTML
         marksman.enable = true; # Markdown
         nil_ls.enable = true; # Nix

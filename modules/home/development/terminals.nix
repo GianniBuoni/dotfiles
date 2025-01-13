@@ -22,12 +22,14 @@
       enable = true;
       shellAliases = {
         "cd" = "z";
+        "gg" = "go build";
+        "llg" = "lazygit";
         "ls" = "eza --icons=always";
         "pn" = "pnpm";
+        "nd" = "nix develop"; #codespell:ignore
+        "t" = "tmux";
         "vi" = "nvim";
         "vim" = "nvim";
-        "llg" = "lazygit";
-        "t" = "tmux";
       };
       syntaxHighlighting.enable = true;
       autosuggestion.enable = true;

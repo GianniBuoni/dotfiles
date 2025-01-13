@@ -19,6 +19,10 @@
     dig
   ];
 
+  environment.variables = {
+    EDITOR = "neovim";
+  };
+
   virtualisation.docker.enable = true;
   programs.zsh.enable = true;
 }
