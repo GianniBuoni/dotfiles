@@ -23,7 +23,7 @@
       enable = true;
       shellAliases = {
         "cd" = "z";
-        "gg" = "go build";
+        "gg" = "go run .";
         "llg" = "lazygit";
         "ls" = "eza --icons=always";
         "pn" = "pnpm";
