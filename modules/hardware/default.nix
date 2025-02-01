@@ -13,5 +13,12 @@
         ./nvidia-offload.nix
       ]
       else []
+    )
+    ++ (
+      if (systemSettings.formFactor == "homelab")
+      then [
+        ./nvidia.nix
+      ]
+      else []
     );
 }

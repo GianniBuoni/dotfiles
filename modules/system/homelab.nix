@@ -1,4 +1,6 @@
-{
+{lib, ...}: {
+  services.xserver.displayManager.startx.enable = lib.mkForce true;
+
   networking = {
     interfaces.enp0s13f0u3u4.ipv4.addresses = [
       {
