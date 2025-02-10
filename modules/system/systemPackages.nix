@@ -17,6 +17,10 @@
     tree
     wget
     dig
+
+    # for neovim lsp and treesitter
+    nil
+    vimPlugins.nvim-treesitter-parsers.nix
   ];
 
   environment.variables = {
