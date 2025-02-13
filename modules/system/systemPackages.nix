@@ -19,8 +19,11 @@
     dig
 
     # for neovim lsp and treesitter
+    # lua and nix supported system-wide
+    # prettier for markdown and yaml formating
     nil
-    vimPlugins.nvim-treesitter-parsers.nix
+    lua-language-server
+    nodePackages.prettier
   ];
 
   environment.variables = {
