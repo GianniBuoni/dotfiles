@@ -22,6 +22,7 @@
     # lua and nix supported system-wide
     # prettier for markdown and yaml formating
     nil
+    alejandra
     lua-language-server
     nodePackages.prettier
   ];
