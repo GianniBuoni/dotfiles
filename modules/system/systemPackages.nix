@@ -4,6 +4,7 @@
   environment.systemPackages = with pkgs; [
     curl
     distrobox
+    devenv
     docker
     docker-compose
     efibootmgr
@@ -32,5 +33,8 @@
   };
 
   virtualisation.docker.enable = true;
-  programs.zsh.enable = true;
+  programs = {
+    direnv.enable = true;
+    zsh.enable = true;
+  };
 }
