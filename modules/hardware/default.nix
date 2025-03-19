@@ -4,6 +4,7 @@
       ./disk-config.nix
       ./main.nix
       ./qmk.nix
+      ./opentabletdriver.nix
     ]
     ++ (
       if (systemSettings.formFactor == "laptop")
