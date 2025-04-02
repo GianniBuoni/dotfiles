@@ -13,7 +13,6 @@
       ]
       else
         [
-          ./ags-types.nix
           ./rotate-monitor.nix
         ]
         ++ (

@@ -9,7 +9,7 @@
         session-wizard
         vim-tmux-navigator
       ];
-      terminal = "xterm-kitty";
+      terminal = "xterm-ghostty";
       extraConfig = ''
         set-option -g mouse on
         set-option -g status-position top
@@ -23,14 +23,16 @@
       enable = true;
       shellAliases = {
         "cd" = "z";
-        "gg" = "go run .";
         "llg" = "lazygit";
         "ls" = "eza --icons=always";
-        "pn" = "pnpm";
-        "nd" = "nix develop -c zsh"; #codespell:ignore
         "t" = "tmux";
         "vi" = "nvim";
         "vim" = "nvim";
+
+        ## language dependant aliases
+        "pn" = "pnpm";
+        "gg" = "go run .";
+        "cr" = "cargo run";
       };
       syntaxHighlighting.enable = true;
       autosuggestion.enable = true;

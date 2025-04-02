@@ -1,8 +1,8 @@
 {systemSettings, ...}: {
   wayland.windowManager.hyprland.settings = {
     # ----- PROGRAM VARIABLES ----- #
-    "$terminal" = "kitty";
-    "$fileManager" = "kitty -e yazi";
+    "$terminal" = "ghostty";
+    "$fileManager" = "ghostty -e yazi";
     "$menu" = "rofi -show drun";
     "$run" = "rofi -show run";
     "$emoji" = "rofi -modi emoji -show emoji";

@@ -5,5 +5,6 @@
     ./kitty.nix
     ./obsidian.nix
     ./syncthing.nix
+    ./ghostty.nix
   ];
 }
