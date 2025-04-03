@@ -4,7 +4,6 @@
   environment.systemPackages = with pkgs; [
     curl
     distrobox
-    devenv
     docker
     docker-compose
     efibootmgr
@@ -22,10 +21,6 @@
     # for neovim lsp and treesitter
     # lua and nix supported system-wide
     # prettier for markdown and yaml formating
-    nil
-    alejandra
-    lua-language-server
-    nodePackages.prettier
   ];
 
   environment.variables = {
@@ -34,7 +29,6 @@
 
   virtualisation.docker.enable = true;
   programs = {
-    direnv.enable = true;
     zsh.enable = true;
   };
 }

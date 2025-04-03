@@ -1,8 +1,18 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
+    btop
+    devenv
     trash-cli
+
+    # universal lsps and formatters
+    nil
+    alejandra
+    lua-language-server
+    nodePackages.prettier
   ];
+
   programs = {
+    direnv.enable = true;
     bashmount.enable = true;
     yazi = {
       enable = true;

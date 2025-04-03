@@ -1,6 +1,6 @@
 {
   imports = [
-    ./filesystems.nix
+    ./cli-tools.nix
     ./git.nix
     ./terminals.nix
   ];
