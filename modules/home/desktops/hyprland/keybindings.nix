@@ -11,11 +11,9 @@
       "$mod, K, movefocus, u"
       "$mod, L, movefocus, r"
 
-      # --- MOVE WINDOW WITH VIM KEYS --- #
-      "$mod, H, movewindow, l"
-      "$mod, J, movewindow, d"
-      "$mod, K, movewindow, u"
-      "$mod, L, movewindow, r"
+      # --- SWITCH WORKSPACES WITH VIM KEYS --- #
+      "$mod SHIFT, H, workspace, -1"
+      "$mod SHIFT, L, workspace, +1"
 
       # --- SWITCH WORKSPACES --- #
       "$mod, 1, workspace, 1"
