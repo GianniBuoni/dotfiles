@@ -28,11 +28,6 @@
         "t" = "tmux";
         "vi" = "nvim";
         "vim" = "nvim";
-
-        ## language dependant aliases
-        "pn" = "pnpm";
-        "gg" = "go run .";
-        "cr" = "cargo run";
       };
       syntaxHighlighting.enable = true;
       autosuggestion.enable = true;

@@ -2,6 +2,7 @@
   home.packages = with pkgs; [
     btop
     devenv
+    just
     trash-cli
 
     # universal lsps and formatters
