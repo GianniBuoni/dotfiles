@@ -14,7 +14,7 @@
       ]
       else [
         ./hyprland.nix
-        ./plasma.nix
+        ./greetd.nix
       ]
     );
 }
