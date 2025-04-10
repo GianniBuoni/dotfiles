@@ -11,9 +11,8 @@ in {
       "workspace ${gamingSpace}, moonlight"
     ];
     workspace = [
-      "1,monitor:desc:HAT Kamvas Pro 19 0xF0000005,default:true"
-      "2,monitor:desc:Lenovo Group Limited Go Display 0x00888888,default:true"
-      "2,monitor:desc:LG Electronics LG HDR 4K 0x00039027,,default:true"
+      "1,monitor:desc:ASUSTek COMPUTER INC PA32UCDM T1LMSB000539,default:true"
+      "2,monitor:desc:HAT Kamvas Pro 19 0xF0000005,default:true"
     ];
   };
 }
