@@ -2,13 +2,11 @@ let
   gamingSpace = "3";
 in {
   wayland.windowManager.hyprland.settings = {
-    windowrulev2 = [
+    windowrule = [
       "suppressevent maximize, class:.*" # You'll probably like this.
       "idleinhibit fullscreen, fullscreen:1" # To make sure hypridle doesn't lock you out of video watching
-    ];
-    windowrule = [
-      "workspace ${gamingSpace} silent,steam"
-      "workspace ${gamingSpace}, moonlight"
+      "workspace ${gamingSpace} silent, class:^(steam)$"
+      "workspace ${gamingSpace}, title:^(Moonlight)$"
     ];
     workspace = [
       "1,monitor:desc:ASUSTek COMPUTER INC PA32UCDM T1LMSB000539,default:true"
