@@ -9,7 +9,7 @@ in {
       "workspace ${gamingSpace}, title:^(Moonlight)$"
     ];
     workspace = [
-      "1,monitor:desc:ASUSTek COMPUTER INC PA32UCDM T1LMSB000539,default:true"
+      "1,DP-5,default:true"
       "2,monitor:desc:HAT Kamvas Pro 19 0xF0000005,default:true"
     ];
   };
