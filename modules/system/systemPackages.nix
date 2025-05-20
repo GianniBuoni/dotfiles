@@ -4,6 +4,7 @@
   environment.systemPackages = with pkgs; [
     curl
     distrobox
+    dig
     docker
     docker-compose
     efibootmgr
@@ -15,8 +16,8 @@
     neovim
     pciutils
     tree
+    unzip
     wget
-    dig
 
     # for neovim lsp and treesitter
     # lua and nix supported system-wide
