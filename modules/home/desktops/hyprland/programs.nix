@@ -6,7 +6,7 @@
     "$menu" = "rofi -show drun";
     "$run" = "rofi -show run";
     "$emoji" = "rofi -modi emoji -show emoji";
-    "$web" = "firefox";
+    "$web" = "zen-beta";
 
     # ----- PROGRAM KEYBINDINGS ----- #
     bind = [
