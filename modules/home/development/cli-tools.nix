@@ -20,9 +20,9 @@
       settings = {
         opener.edit = [
           {
-            run = "nvim $@";
+            run = "hx $@";
             block = true;
-            desc = "Open in NeoVim";
+            desc = "Open in Helix";
           }
         ];
       };

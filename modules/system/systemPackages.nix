@@ -11,7 +11,9 @@
     exiftool
     gh
     git
+    helix
     lshw
+    marksman
     neofetch
     neovim
     pciutils
@@ -24,9 +26,7 @@
     # prettier for markdown and yaml formating
   ];
 
-  environment.variables = {
-    EDITOR = "neovim";
-  };
+  environment.sessionVariables = {EDITOR = "hx";};
 
   virtualisation.docker.enable = true;
   programs = {
