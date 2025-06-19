@@ -23,7 +23,7 @@
 
     exec-once =
       [
-        "hyprpaper & waybar & mako"
+        "hyprpaper & mako"
         "[workspace 2 silent] $web"
       ]
       ++ (

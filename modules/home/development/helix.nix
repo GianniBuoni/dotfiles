@@ -11,7 +11,10 @@
           character = "┆"; # Some characters that work well: "▏", "┆", "┊", "⸽"
           skip-levels = 1;
         };
-        soft-wrap.enable = true;
+        soft-wrap = {
+          enable = true;
+          wrap-at-text-width = true;
+        };
       };
     };
     languages = {
