@@ -2,7 +2,7 @@
   werk = pkgs.writeShellScriptBin "werk" ''
     tmux new-window &&
     tmux select-window -t 1 &&
-    nvim
+    hx
   '';
   ddo = pkgs.writeShellScriptBin "ddo" ''
     tmux new-session -A -c ~/dotfiles -s dotfiles
