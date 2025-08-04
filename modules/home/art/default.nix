@@ -3,5 +3,6 @@
     krita
     aseprite
     ldtk
+    blender
   ];
 }
