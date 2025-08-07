@@ -23,7 +23,9 @@
 
     exec-once =
       [
-        "hyprpaper & mako"
+        "hyprpaper"
+        "mako"
+        "waybar"
         "[workspace 2 silent] $web"
       ]
       ++ (
