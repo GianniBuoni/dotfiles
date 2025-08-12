@@ -4,5 +4,6 @@
     aseprite
     ldtk
     blender
+    godot
   ];
 }
