@@ -1,7 +1,10 @@
-{pkgs, ...}: {
-  nixpkgs.config.allowUnfree = true;
-
-  environment.systemPackages = with pkgs; [
+{
+  pkgs,
+  inputs,
+  systemSettings,
+  ...
+}: let
+  fromNix = with pkgs; [
     curl
     distrobox
     dig
@@ -20,13 +23,18 @@
     tree
     unzip
     wget
-
-    # for neovim lsp and treesitter
-    # lua and nix supported system-wide
-    # prettier for markdown and yaml formating
   ];
 
-  environment.sessionVariables = {EDITOR = "hx";};
+  fromFlakes = with inputs; [
+    mathing.defaultPackage.${systemSettings.system}
+  ];
+in {
+  nixpkgs.config.allowUnfree = true;
+
+  environment = {
+    systemPackages = fromNix ++ fromFlakes;
+    sessionVariables = {EDITOR = "hx";};
+  };
 
   virtualisation.docker.enable = true;
   programs = {
