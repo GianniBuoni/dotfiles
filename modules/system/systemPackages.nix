@@ -1,7 +1,6 @@
 {
   pkgs,
   inputs,
-  systemSettings,
   ...
 }: let
   fromNix = with pkgs; [
@@ -26,7 +25,7 @@
   ];
 
   fromFlakes = with inputs; [
-    mathing.defaultPackage.${systemSettings.system}
+    mathing.defaultPackage.${pkgs.system}
   ];
 in {
   nixpkgs.config.allowUnfree = true;

@@ -2,10 +2,9 @@
   description = "Gianni Buoni's NixOS Flake";
 
   outputs = {nixpkgs, ...} @ inputs: let
-    system = "x86_64-linux";
     mkHost = hostName: formFactor: theme: {
-      inherit system;
-      specialArgs = import ./specialArgs.nix {inherit hostName formFactor theme system inputs;};
+      system = "x86_64-linux";
+      specialArgs = import ./specialArgs.nix {inherit hostName formFactor theme inputs;};
       modules = [./modules];
     };
   in {
