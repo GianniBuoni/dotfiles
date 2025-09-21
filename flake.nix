@@ -36,6 +36,7 @@
     };
 
     mathing.url = "github:GianniBuoni/mathing-tui";
+    sb.url = "github:GianniBuoni/second-brain/release";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
 
     # STYLING AND UI

@@ -13,7 +13,10 @@
   ];
 
   programs = {
-    direnv.enable = true;
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+    };
     bashmount.enable = true;
     yazi = {
       enable = true;

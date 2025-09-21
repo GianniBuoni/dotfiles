@@ -1,8 +1,8 @@
 {
   services = {
     # Audio
-    pipewire.enable = false;
-    pulseaudio.enable = true; # Enable sound with ppulseaudio
+    pipewire.enable = true;
+    pulseaudio.enable = false; # Enable sound with ppulseaudio
 
     # Keyboard
     xserver = {

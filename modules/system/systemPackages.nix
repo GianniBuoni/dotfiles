@@ -26,6 +26,7 @@
 
   fromFlakes = with inputs; [
     mathing.defaultPackage.${pkgs.system}
+    sb.packages.${pkgs.system}.default
   ];
 in {
   nixpkgs.config.allowUnfree = true;
