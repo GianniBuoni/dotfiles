@@ -2,6 +2,7 @@
   wayland.windowManager.hyprland.settings = {
     # ----- PROGRAM VARIABLES ----- #
     "$terminal" = "ghostty";
+    "$notes" = "obsidian";
     "$fileManager" = "ghostty -e yazi";
     "$menu" = "rofi -show drun";
     "$run" = "rofi -show run";
@@ -14,7 +15,7 @@
       "$mod, E, exec, $fileManager" # [E]xplorer
       "$mod, F, exec, $web" # [F]irefox
       "$mod, W, killactive"
-      "$mod, M, exit"
+      "$mod, O, exec, $notes" # [O]bsidian
       "$mod, V, togglefloating"
       "$mod, SPACE, exec, $menu"
       "ALT, SPACE, exec, $run"
