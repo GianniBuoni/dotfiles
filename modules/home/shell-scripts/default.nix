@@ -1,9 +1,6 @@
 {systemSettings, ...}: {
   imports =
     [
-      ./nix-system.nix
-      ./obsidian.nix
-      ./workspace.nix
       ./docker.nix
     ]
     ++ (
