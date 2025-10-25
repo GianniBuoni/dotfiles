@@ -571,11 +571,11 @@
         "rust-flake": "rust-flake"
       },
       "locked": {
-        "lastModified": 1759957393,
-        "narHash": "sha256-lPpnFSJBmLk6/Y7nuDL3pX/p7+MB8mSXLFl2TThc3RY=",
+        "lastModified": 1760399411,
+        "narHash": "sha256-XaU+TnXjHt0cit9L2+/tYPOUDW52QeLNjJagddi7M9g=",
         "owner": "GianniBuoni",
         "repo": "second-brain",
-        "rev": "bb5820ecf56f6ea7b7ac7c3fd5f9c64d94f336a7",
+        "rev": "46d778c0f194c7d3719b62cae65879634a0feaaf",
         "type": "github"
       },
       "original": {
