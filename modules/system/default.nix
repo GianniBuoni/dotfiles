@@ -15,6 +15,7 @@
       else [
         ./hyprland.nix
         ./greetd.nix
+        ./sops.nix
       ]
     );
 }
