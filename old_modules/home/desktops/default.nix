@@ -1,7 +1,0 @@
-{
-  imports = [
-    ./hyprland
-    ./rofi
-    ./waybar
-  ];
-}
