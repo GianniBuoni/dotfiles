@@ -1,0 +1,26 @@
+{
+  flake.aspects.options.hosts = {lib, ...}: {
+    options.hostData = with lib; {
+      # has defaults
+      system = mkOption {
+        description = ''Host's hostPlatform'';
+        type = types.str;
+        default = "x86_64-linux";
+      };
+      stateVersion = mkOption {
+        description = ''Host's original nixos version'';
+        type = types.str;
+        default = "25.11";
+      };
+      # required to be set
+      hostName = mkOption {
+        description = ''Host's hostname; should match nixosHost submodule'';
+        type = types.str;
+      };
+      theme = mkOption {
+        description = ''Host's stylix set theme; targets host level theming i.e. the tty'';
+        type = types.str;
+      };
+    };
+  };
+}

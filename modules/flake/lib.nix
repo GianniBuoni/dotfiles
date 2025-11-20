@@ -1,0 +1,27 @@
+{
+  inputs,
+  config,
+  ...
+}: let
+  self = config.flake.modules;
+in {
+  flake.lib = {
+    mkNixosHost = hostName: opts:
+      inputs.nixpkgs.lib.nixosSystem {
+        pkgs = import inputs.nixpkgs {
+          inherit (opts.hostData) system;
+          allowUnfree = true;
+        };
+        specialArgs = {inherit inputs;};
+        modules = [
+          # import options and host modules
+          self.hosts.options
+          self.nixos.${hostName}
+          # inherit flake's config settings
+          {inherit (opts) hostData;}
+          # set state version
+          {system = {inherit (opts.hostData) stateVersion;};}
+        ];
+      };
+  };
+}
