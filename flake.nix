@@ -1,55 +1,19 @@
+# DO-NOT-EDIT. This file was auto-generated using github:vic/flake-file.
+# Use `nix run .#write-flake` to regenerate it.
 {
-  description = "Gianni Buoni's NixOS Flake";
 
-  outputs = {nixpkgs, ...} @ inputs: let
-    mkHost = hostName: formFactor: theme: {
-      system = "x86_64-linux";
-      specialArgs = import ./specialArgs.nix {inherit hostName formFactor theme inputs;};
-      modules = [./modules];
-    };
-  in {
-    nixosConfigurations = {
-      baby-wizard = nixpkgs.lib.nixosSystem (mkHost "baby-wizard" "handheld" "gruvbox-dark-medium");
-      duck-muscles = nixpkgs.lib.nixosSystem (mkHost "duck-muscles" "laptop" "rose-pine");
-      sleepy-gary = nixpkgs.lib.nixosSystem (mkHost "sleepy-gary" "homelab" "gruvbox-dark-medium");
-    };
-  };
+  outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-
-    # SYSTEM AND HARDWARE MANAGEMENT
-    disko = {
-      url = "github:nix-community/disko";
+    flake-aspects.url = "github:vic/flake-aspects";
+    flake-file.url = "github:vic/flake-file";
+    flake-parts.url = "github:hercules-ci/flake-parts";
+    import-tree.url = "github:vic/import-tree";
+    nix-auto-follow = {
       inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:fzakaria/nix-auto-follow";
     };
-
-    # EXTRA SERVICES
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    sops-nix = {
-      url = "github:Mic92/sops-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    secrets = {
-      url = "git+ssh://git@github.com/GianniBuoni/secrets?ref=main&shallow=1";
-      flake = false;
-    };
-
-    jovian = {
-      url = "github:Jovian-Experiments/Jovian-NixOS";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    mathing.url = "github:GianniBuoni/mathing-tui";
-    sb.url = "github:GianniBuoni/second-brain/release";
-    zen-browser.url = "github:0xc000022070/zen-browser-flake";
-
-    # STYLING AND UI
-    stylix.url = "github:danth/stylix";
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
   };
+
 }
