@@ -10,7 +10,7 @@ in {
       inputs.nixpkgs.lib.nixosSystem {
         pkgs = import inputs.nixpkgs {
           inherit (opts.hostData) system;
-          allowUnfree = true;
+          config.allowUnfree = true;
         };
         specialArgs = {inherit inputs;};
         modules = [
