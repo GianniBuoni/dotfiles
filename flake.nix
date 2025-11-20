@@ -14,6 +14,7 @@
       url = "github:fzakaria/nix-auto-follow";
     };
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    systems.url = "github:nix-systems/default";
   };
 
 }
