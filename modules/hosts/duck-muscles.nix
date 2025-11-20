@@ -1,4 +1,4 @@
-let
+{config, ...}: let
   hostName = "duck-muscles";
 in {
   nixosHosts.${hostName}.hostData = {
@@ -10,9 +10,9 @@ in {
   flake.aspects = {aspects, ...}: {
     ${hostName} = {
       includes = with aspects; [
-        boot
+        nixosCore
       ];
-      nixos = {};
+      nixos.imports = [config.flake.modules.${hostName}.${hostName}];
       ${hostName} = {};
     };
   };
