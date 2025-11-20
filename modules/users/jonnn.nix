@@ -1,0 +1,3 @@
+{
+  flake.aspects.jonnn.nixos = {};
+}

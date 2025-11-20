@@ -23,5 +23,6 @@ in {
           {system = {inherit (opts.hostData) stateVersion;};}
         ];
       };
+    mkUser = userName: self.nixos.${userName};
   };
 }
