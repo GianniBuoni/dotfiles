@@ -2,10 +2,12 @@
 # needed for fs, boot, and networking
 {
   flake.aspects = {aspects, ...}: {
-    nixosCore = {
+    nixosCore._.host = hostName: {
       includes = with aspects; [
         boot
         disko
+        disko._.${hostName}
+        sops
       ];
     };
   };

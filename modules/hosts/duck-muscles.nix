@@ -1,10 +1,9 @@
 {
-  config,
   lib,
+  config,
   ...
 }: let
   lib' = config.flake.lib;
-  modules = config.flake.modules;
   hostName = "duck-muscles";
 in {
   nixosHosts.${hostName}.hostData = {
@@ -16,14 +15,15 @@ in {
 
   flake.aspects = {aspects, ...}: {
     ${hostName} = {
-      includes = with aspects; [
-        nixosCore
-        greetd
-      ];
-      nixos.imports =
-        [modules.${hostName}.${hostName}]
+      includes = with aspects;
+        [
+          (nixosCore._.host "${hostName}")
+          gaming
+          greetd
+        ]
         ++ lib.map lib'.mkUser config.nixosHosts.${hostName}.hostData.users;
-      ${hostName} = {};
+
+      nixos = {};
     };
   };
 }
