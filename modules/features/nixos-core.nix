@@ -7,6 +7,8 @@
         boot
         disko
         disko._.${hostName}
+        networking
+        nixSettings
         sops
       ];
     };

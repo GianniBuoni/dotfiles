@@ -13,4 +13,4 @@ write:
   nix run .#write-flake
 
 check: write
-  nix flake check
+  nix flake check --impure

@@ -1,3 +1,5 @@
-{
-  flake.aspects.jonnn.nixos = {};
+let
+  userName = "jonnn";
+in {
+  flake.aspects.${userName}.nixos = {};
 }
