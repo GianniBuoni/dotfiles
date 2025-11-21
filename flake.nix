@@ -20,6 +20,7 @@
       url = "git+ssh://git@github.com/GianniBuoni/secrets.git?ref=main&shallow=1";
     };
     sops-nix.url = "github:Mic92/sops-nix";
+    stylix.url = "github:nix-community/stylix";
     systems.url = "github:nix-systems/default";
   };
 

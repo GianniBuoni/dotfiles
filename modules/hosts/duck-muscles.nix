@@ -6,7 +6,7 @@
   lib' = config.flake.lib;
   hostName = "duck-muscles";
   font = "JetBrainsMono";
-in {
+
   nixosHosts.${hostName} = {
     hostData = {
       inherit hostName;
@@ -25,6 +25,10 @@ in {
     };
   };
 
+  inherit (nixosHosts.${hostName}) hostData;
+in {
+  inherit nixosHosts;
+
   flake.aspects = {aspects, ...}: {
     ${hostName} = {
       includes = with aspects;
@@ -34,9 +38,10 @@ in {
           gaming
           greetd
           tablets
+          stylix
           virtualization
         ]
-        ++ lib.map lib'.mkUser config.nixosHosts.${hostName}.hostData.users;
+        ++ lib.map lib'.mkUser hostData.users;
 
       nixos = {};
     };
