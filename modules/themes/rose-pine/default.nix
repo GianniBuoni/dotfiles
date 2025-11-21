@@ -1,7 +1,7 @@
 #scheme = "Rosé Pine Moon"
 #author = "Emilia Dunfelt <edun@dunfelt.se>"
 {
-  palette = {
+  flake.aspects.themes._.rose-pine.palette = {
     base00 = "232136";
     base01 = "2a273f";
     base02 = "393552";

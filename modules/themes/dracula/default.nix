@@ -1,7 +1,7 @@
 # scheme = "Dracula"
 # author = "Mike Barkmin (http://github.com/mikebarkmin) based on Dracula Theme (http://github.com/dracula)"
 {
-  palette = {
+  flake.aspects.themes._.dracula.palette = {
     base00 = "282936"; #background
     base01 = "3a3c4e";
     base02 = "4d4f68";

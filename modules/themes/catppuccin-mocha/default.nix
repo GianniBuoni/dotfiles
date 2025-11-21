@@ -2,7 +2,7 @@
 # author = "https =//github.com/catppuccin/catppuccin"
 # variant = "dark"
 {
-  palette = {
+  flake.aspects.themes._.catppuccin-mocha.palette = {
     base00 = "1e1e2e"; # base
     base01 = "181825"; # mantle
     base02 = "313244"; # surface0

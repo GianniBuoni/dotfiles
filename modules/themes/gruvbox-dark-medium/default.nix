@@ -1,7 +1,7 @@
 # scheme = "Gruvbox dark, medium"
 # author = "Dawid Kurek (dawikur@gmail.com), morhetz (https://github.com/morhetz/gruvbox)"
 {
-  palette = {
+  flake.aspects.themes._.gruvbox-dark-medium-palette = {
     base00 = "282828"; # ----
     base01 = "3c3836"; # ---
     base02 = "504945"; # --
