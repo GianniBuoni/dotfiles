@@ -18,6 +18,7 @@ in {
       includes = with aspects;
         [
           (nixosCore._.host "${hostName}")
+          asusLaptop
           gaming
           greetd
         ]
