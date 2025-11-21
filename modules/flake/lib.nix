@@ -1,4 +1,5 @@
 {
+  lib,
   inputs,
   config,
   ...
@@ -15,10 +16,10 @@ in {
         specialArgs = {inherit inputs;};
         modules = [
           # import options and host modules
-          self.hosts.options
+          self.flake.options
           self.nixos.${hostName}
           # inherit flake's config settings
-          {inherit (opts) hostData;}
+          {config = opts;}
           # set state version
           {system = {inherit (opts.hostData) stateVersion;};}
         ];

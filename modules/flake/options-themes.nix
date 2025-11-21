@@ -1,7 +1,7 @@
 {lib, ...}: {
   flake.aspects.options.themes = with lib; {
     options.themeSettings = let
-      fontAttrs = {
+      fontModule.options = {
         name = mkOption {
           description = "Base name of font";
           type = types.str;
@@ -15,7 +15,7 @@
           type = types.str;
         };
       };
-      cursorAttrs = {
+      cursorModule.options = {
         name = mkOption {
           description = "Name of cursor style";
           type = types.str;
@@ -32,11 +32,11 @@
       };
       font = mkOption {
         description = "Attribute set of font options";
-        type = types.attrsOf fontAttrs;
+        type = types.submodule fontModule;
       };
       cursor = mkOption {
         description = "Attribute set cursor style options";
-        type = types.attrsOf cursorAttrs;
+        type = types.submodule cursorModule;
       };
     };
   };
