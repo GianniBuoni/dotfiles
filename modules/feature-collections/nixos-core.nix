@@ -7,9 +7,12 @@
         boot
         disko
         disko._.${hostName}
+        io
+        locales
         networking
         nixSettings
         sops
+        systemManagement
       ];
     };
   };

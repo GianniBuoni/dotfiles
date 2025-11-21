@@ -2,6 +2,7 @@
   flake.aspects.networking.nixos = {
     lib,
     config,
+    pkgs,
     ...
   }: let
     inherit (config) hostData;
@@ -10,6 +11,12 @@
       "wifi.env" = {};
       "tokens/zerotier" = {};
     };
+
+    environment.systemPackages = with pkgs; [
+      curl
+      dig
+      wget
+    ];
 
     networking = {
       inherit (hostData) hostName;

@@ -21,6 +21,8 @@ in {
           asusLaptop
           gaming
           greetd
+          tablets
+          virtualization
         ]
         ++ lib.map lib'.mkUser config.nixosHosts.${hostName}.hostData.users;
 
