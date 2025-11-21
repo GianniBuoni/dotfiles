@@ -17,10 +17,6 @@
         description = ''Host's hostname; should match nixosHost submodule'';
         type = types.str;
       };
-      theme = mkOption {
-        description = ''Host's stylix set theme; targets host level theming i.e. the tty'';
-        type = types.str;
-      };
       users = mkOption {
         description = ''List of host's users'';
         type = types.listOf types.str;
