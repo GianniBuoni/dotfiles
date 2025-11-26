@@ -1,5 +1,4 @@
 {
-  lib,
   inputs,
   config,
   ...
@@ -25,5 +24,12 @@ in {
         ];
       };
     mkUser = userName: config.flake.aspects.${userName};
+    mkFs = format: size: mountpoint: {
+      inherit size;
+      content = {
+        inherit mountpoint format;
+        type = "filesystem";
+      };
+    };
   };
 }
