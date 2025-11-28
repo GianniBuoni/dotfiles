@@ -2,6 +2,7 @@
   flake.aspects = {aspects, ...}: {
     shell.includes = with aspects; [
       zsh
+      zellij
     ];
 
     nixos.programs = {
