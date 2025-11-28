@@ -14,8 +14,6 @@
       in {
         sops.secrets.${passKey}.neededForUsers = true;
 
-        programs.zsh.enable = true;
-
         users.mutableUsers = false;
         users.users.${userName} = {
           isNormalUser = true;

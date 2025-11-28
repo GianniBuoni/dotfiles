@@ -11,6 +11,7 @@
         locales
         networking
         nixSettings
+        shell
         sops
         systemManagement
       ];
