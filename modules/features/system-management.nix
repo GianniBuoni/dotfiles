@@ -2,6 +2,7 @@
   flake.aspects.systemManagement.nixos = {pkgs, ...}: {
     environment.systemPackages = with pkgs; [
       bashmount
+      btop
       efibootmgr
       exiftool
       fastfetch
