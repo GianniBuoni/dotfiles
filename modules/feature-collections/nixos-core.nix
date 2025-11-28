@@ -7,6 +7,7 @@
         boot
         disko
         disko._.${hostName}
+        git
         io
         locales
         networking

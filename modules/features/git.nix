@@ -2,9 +2,8 @@ let
   enable = true;
 in {
   flake.aspects.git = {
-    nixos.programs = {
-      git = {inherit enable;};
-      gh = {inherit enable;};
+    nixos = {pkgs, ...}: {
+      environment.systemPackages = with pkgs; [git gh];
     };
 
     homeManager = {config, ...}: let
