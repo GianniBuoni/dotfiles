@@ -22,6 +22,8 @@
           shell = pkgs.zsh;
         };
       };
+
+      homeManager = {};
     };
   };
 }
