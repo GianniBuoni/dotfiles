@@ -3,7 +3,10 @@
     userName = "jonnn";
   in {
     ${userName} = {
-      includes = with aspects; [(ssh._.users "${userName}" "dev")];
+      includes = with aspects; [
+        (ssh._.users "${userName}" "dev")
+        (homeManager._.users "${userName}")
+      ];
 
       nixos = {
         config,
