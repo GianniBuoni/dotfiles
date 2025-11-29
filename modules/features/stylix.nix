@@ -1,6 +1,7 @@
 {
   flake-file.inputs.stylix.url = "github:nix-community/stylix";
   flake.aspects.stylix.nixos = {
+    lib,
     inputs,
     pkgs,
     config,
@@ -17,7 +18,7 @@
       # colors
       base16Scheme = "${pkgs.base16-schemes}/share/themes/${themeSettings.palette}.yaml";
       polarity = "dark";
-      image = ./modules/themes/${themeSettings.palette}/wallpaper.jpg;
+      image = ../../modules/themes/${themeSettings.palette}/wallpaper.jpg;
 
       # decorations
       opacity.terminal = .95;

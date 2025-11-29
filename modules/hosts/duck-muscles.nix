@@ -13,7 +13,7 @@
       stateVersion = "24.05";
       users = ["jonnn"];
     };
-    themeSettings.palette = "rose-pine";
+    themeSettings.palette = "rose-pine-moon";
     themeSettings.font = {
       name = "${font}";
       nerd = "${font} Nerd Font";
