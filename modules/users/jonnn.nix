@@ -6,6 +6,7 @@
       includes = with aspects; [
         (ssh._.users "${userName}" "dev")
         (homeManager._.users "${userName}")
+        desktop
       ];
 
       nixos = {
