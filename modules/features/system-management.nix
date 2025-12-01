@@ -8,6 +8,7 @@
       fastfetch
       lshw
       pciutils
+      trash-cli
       unzip
     ];
 
