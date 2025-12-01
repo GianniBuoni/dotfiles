@@ -1,6 +1,5 @@
 {
-  services.mako.enable = true;
-  programs.waybar = {
+  flake.aspects.waybar.homeManager.programs.waybar = {
     enable = true;
     systemd.enable = false;
     settings.mainBar = {
