@@ -12,6 +12,11 @@
         type = types.str;
         default = "25.11";
       };
+      hasHomeManager = mkOption {
+        description = ''Bool to allow user's home-manager cofnigs'';
+        type = types.bool;
+        default = true;
+      };
       # required to be set
       hostName = mkOption {
         description = ''Host's hostname; should match nixosHost submodule'';

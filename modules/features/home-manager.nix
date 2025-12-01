@@ -1,30 +1,31 @@
 top @ {...}: {
   flake-file.inputs.home-manager.url = "github:nix-community/home-manager";
 
-  flake.aspects.homeManager._.users = userName: {
+  flake.aspects.homeManager._.users = username: {
     nixos = {
+      lib,
       inputs,
       config,
       ...
     }: {
       imports = [inputs.home-manager.nixosModules.home-manager];
 
-      home-manager = {
+      home-manager = lib.mkIf (config.hostData.hasHomeManager) {
         useGlobalPkgs = true;
         useUserPackages = true;
         extraSpecialArgs = {inherit inputs;};
         backupFileExtension = "hmbak";
 
-        users.${userName} = {
+        users.${username} = {
           # import user's homeManager aspects
-          imports = [top.config.flake.modules.homeManager.${userName}];
+          imports = [top.config.flake.modules.homeManager.${username}];
 
           # base home-manager settings
           home = {
-            username = userName;
-            homeDirectory = "/home/${userName}";
+            homeDirectory = "/home/${username}";
 
-            stateVersion = "24.05";
+            inherit username;
+            inherit (config.hostData) stateVersion;
           };
 
           programs.home-manager.enable = true;

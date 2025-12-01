@@ -9,6 +9,7 @@
   nixosHosts.${hostName}.hostData = {
     inherit hostName;
     users = ["jonnn"];
+    hasHomeManager = false;
   };
 
   inherit (nixosHosts.${hostName}) hostData;
