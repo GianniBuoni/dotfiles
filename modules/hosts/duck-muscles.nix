@@ -3,9 +3,10 @@
   config,
   ...
 }: let
-  lib' = config.flake.lib;
   hostName = "duck-muscles";
   font = "JetBrainsMono";
+  aspects = config.flake.aspects;
+  inherit (nixosHosts.${hostName}) hostData;
 
   nixosHosts.${hostName} = {
     hostData = {
@@ -25,7 +26,16 @@
     };
   };
 
-  inherit (nixosHosts.${hostName}) hostData;
+  mkUser = userName: {
+    includes = with aspects; [
+      aspects.${userName}
+      (homeManager._.users "${hostName}" "${userName}")
+    ];
+
+    nixos = {};
+  };
+
+  mapUser = userName: aspects.${hostName}._.${userName};
 in {
   inherit nixosHosts;
 
@@ -41,9 +51,10 @@ in {
           stylix
           virtualization
         ]
-        ++ lib.map lib'.mkUser hostData.users;
+        ++ lib.map mapUser hostData.users;
 
       nixos = {};
+      _ = lib.genAttrs hostData.users mkUser;
     };
   };
 }
