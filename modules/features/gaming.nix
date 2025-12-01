@@ -3,9 +3,10 @@
     nixos = {pkgs, ...}: {
       environment.systemPackages = with pkgs; [
         bottles
-        protonup-ng
+        chiaki-ng
         mangohud
         moonlight-qt
+        protonup-ng
       ];
 
       programs = {
