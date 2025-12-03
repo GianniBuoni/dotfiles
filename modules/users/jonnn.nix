@@ -7,6 +7,7 @@
         (ssh._.users "${userName}" "dev")
         desktop
         shell
+        browsers
       ];
 
       nixos = {

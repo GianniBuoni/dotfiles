@@ -23,6 +23,7 @@
     sops-nix.url = "github:Mic92/sops-nix";
     stylix.url = "github:nix-community/stylix";
     systems.url = "github:nix-systems/default";
+    zen-browser.url = "github:0xc000022070/zen-browser-flake";
   };
 
 }
