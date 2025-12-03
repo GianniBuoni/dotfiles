@@ -5,6 +5,7 @@
     ${userName} = {
       includes = with aspects; [
         (ssh._.users "${userName}" "dev")
+        art
         browsers
         desktop
         shell
