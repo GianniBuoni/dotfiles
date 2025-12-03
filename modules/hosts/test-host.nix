@@ -7,12 +7,7 @@
   aspects = config.flake.aspects;
   inherit (nixosHosts.${hostName}) hostData;
 
-  mkUser = userName: {
-    includes = [aspects."${userName}"];
-    nixos = {};
-  };
-
-  mapUser = userName: aspects.${hostName}._.${userName};
+  lib' = config.flake.lib;
 
   nixosHosts.${hostName}.hostData = {
     inherit hostName;
@@ -27,10 +22,8 @@ in {
         (nixosCore._.host "${hostName}")
         virtualization
       ]
-      ++ lib.map mapUser hostData.users;
+      ++ lib.map lib'.mkUser hostData.users;
 
     nixos = {};
-    # host provides user and user modules
-    _ = lib.genAttrs hostData.users mkUser;
   };
 }

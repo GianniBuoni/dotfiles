@@ -23,6 +23,7 @@ in {
           {system = {inherit (opts.hostData) stateVersion;};}
         ];
       };
+    mkUser = userName: config.flake.aspects.${userName};
     mkFs = format: size: mountpoint: {
       inherit size;
       content = {
