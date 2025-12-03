@@ -3,6 +3,7 @@
     shell.includes = with aspects; [
       zsh
       zellij
+      terminalEmulators
     ];
     nixos = {pkgs, ...}: {
       environment.systemPackages = with pkgs; [
