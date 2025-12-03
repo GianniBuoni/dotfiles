@@ -9,6 +9,7 @@
         desktop
         shell
         textEditing
+        fileSync
       ];
 
       nixos = {
