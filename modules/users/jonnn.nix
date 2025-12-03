@@ -5,9 +5,10 @@
     ${userName} = {
       includes = with aspects; [
         (ssh._.users "${userName}" "dev")
+        browsers
         desktop
         shell
-        browsers
+        textEditing
       ];
 
       nixos = {

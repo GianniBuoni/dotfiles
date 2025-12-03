@@ -1,7 +1,7 @@
 {
-  flake.aspects = {aspcets, ...}: {
+  flake.aspects = {aspects, ...}: {
     textEditing = {
-      includes = with aspcets; [
+      includes = with aspects; [
         helix
       ];
 
@@ -17,6 +17,10 @@
         ];
 
         environment.sessionVariables.EDITOR = "hx";
+      };
+
+      homeManager = {pkgs, ...}: {
+        home.packages = with pkgs; [obsidian];
       };
     };
   };
