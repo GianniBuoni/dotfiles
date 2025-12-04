@@ -21,6 +21,8 @@ in {
       [
         (nixosCore._.host "${hostName}")
         virtualization
+        k3s
+        k3s._.singleNode
       ]
       ++ lib.map lib'.mkUser hostData.users;
 
