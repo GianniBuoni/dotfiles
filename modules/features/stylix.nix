@@ -49,8 +49,12 @@
     };
   };
 
-  flake.aspects.stylix.homeManager = {nixosConfig, ...}: let
-    profileNames = nixosConfig.hostData.users;
+  flake.aspects.stylix.homeManager = {
+    lib,
+    nixosConfig,
+    ...
+  }: let
+    profileNames = lib.lists.take 1 nixosConfig.hostData.users;
   in {
     stylix.enableReleaseChecks = false;
 

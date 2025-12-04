@@ -1,21 +1,14 @@
-{
-  lib,
-  config,
-  ...
-}: let
+{config, ...}: let
   hostName = "test-host-gui";
   font = "JetBrainsMono";
   aspects = config.flake.aspects;
-
-  inherit (nixosHosts.${hostName}) hostData;
-  inherit (config.flake.lib) mkUser;
 
   nixosHosts.${hostName} = {
     hostData = {
       inherit hostName;
       users = ["jonnn" "k3s-user"];
     };
-    themeSettings.palette = "rose-pine-moon";
+    themeSettings.palette = "dracula";
     themeSettings.font = {
       name = "${font}";
       nerd = "${font} Nerd Font";
@@ -33,16 +26,19 @@ in {
     description = ''
       Test host that has graphical interface.
     '';
-    includes = with aspects;
-      [
-        (nixosCore._.host "${hostName}")
-        hardware._.latitude
-        k3s
-        k3s._.singleNode
-        stylix
-        virtualization
-      ]
-      ++ lib.map mkUser hostData.users;
+    includes = with aspects; [
+      (nixosCore._.host "${hostName}")
+      greetd
+      hardware._.latitude
+      k3s
+      k3s._.singleNode
+      stylix
+      virtualization
+
+      # import users manually due to different needs
+      (homeManager._.users "jonnn")
+      k3s-user
+    ];
 
     nixos = {};
   };

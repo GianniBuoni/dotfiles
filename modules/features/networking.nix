@@ -9,7 +9,7 @@
   in {
     sops.secrets = {
       "wifi.env" = {};
-      "tokens/zerotier" = {};
+      "zerotierNetwork" = {};
     };
 
     environment.systemPackages = with pkgs; [
@@ -39,7 +39,7 @@
 
     # IMPURE requires secrets to already be bootstrapped to build
     services.zerotierone = let
-      networkIdPath = ''${config.sops.secrets."tokens/zerotier".path}'';
+      networkIdPath = ''${config.sops.secrets."zerotierNetwork".path}'';
     in {
       joinNetworks = lib.mkIf (builtins.pathExists networkIdPath) [
         (builtins.readFile networkIdPath)
