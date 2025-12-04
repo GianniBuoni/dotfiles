@@ -14,6 +14,7 @@
     stylix = {
       enable = true;
       autoEnable = true;
+      enableReleaseChecks = false;
 
       # colors
       base16Scheme = "${pkgs.base16-schemes}/share/themes/${themeSettings.palette}.yaml";
@@ -45,6 +46,17 @@
           terminal = 10;
         };
       };
+    };
+  };
+
+  flake.aspects.stylix.homeManager = {nixosConfig, ...}: let
+    profileNames = nixosConfig.hostData.users;
+  in {
+    stylix.enableReleaseChecks = false;
+
+    stylix.targets = {
+      firefox = {inherit profileNames;};
+      zen-browser = {inherit profileNames;};
     };
   };
 }

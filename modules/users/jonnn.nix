@@ -9,9 +9,9 @@ in {
         art
         browsers
         desktop
+        fileSync
         shell
         textEditing
-        fileSync
       ];
 
       nixos = {

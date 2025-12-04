@@ -19,6 +19,8 @@ top @ {...}: {
           extraSpecialArgs = {inherit inputs;};
           backupFileExtension = "hmbak";
 
+          sharedModules = with aspects; [stylix.homeManager];
+
           users.${username} = {
             # import user's homeManager aspects
             imports = [
