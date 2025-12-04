@@ -17,6 +17,9 @@ in {
   inherit nixosHosts;
 
   flake.aspects.${hostName} = {
+    description = ''
+      Test host that has a minimal configuration and initlaizes a single node k3s cluster.
+    '';
     includes = with aspects;
       [
         (nixosCore._.host "${hostName}")
