@@ -21,13 +21,5 @@ in {
         generateKey = true;
       };
     };
-
-    # TODO refactor to use params?
-    # secrets = {
-    #   "luksKeys/testHost" = {
-    #     owner = config.users.users.jonnn.name;
-    #     inherit (config.users.users.jonnn) group;
-    #   };
-    # };
   };
 }

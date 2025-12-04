@@ -35,7 +35,7 @@ in {
       includes = with aspects;
         [
           (nixosCore._.host "${hostName}")
-          asusLaptop
+          hardware._.asusLaptop
           gaming
           greetd
           tablets

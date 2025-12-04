@@ -36,9 +36,11 @@ in {
     includes = with aspects;
       [
         (nixosCore._.host "${hostName}")
-        virtualization
+        hardware._.latitude
         k3s
         k3s._.singleNode
+        stylix
+        virtualization
       ]
       ++ lib.map mkUser hostData.users;
 
