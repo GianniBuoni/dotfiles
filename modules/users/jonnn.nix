@@ -1,7 +1,8 @@
-{
-  flake.aspects = {aspects, ...}: let
-    userName = "jonnn";
-  in {
+let
+  userName = "jonnn";
+  passKey = "hashedPasswords/${userName}";
+in {
+  flake.aspects = {aspects, ...}: {
     ${userName} = {
       includes = with aspects; [
         (ssh._.users "${userName}" "dev")
@@ -17,9 +18,7 @@
         config,
         pkgs,
         ...
-      }: let
-        passKey = "hashedPasswords/${userName}";
-      in {
+      }: {
         sops.secrets.${passKey}.neededForUsers = true;
 
         users.mutableUsers = false;

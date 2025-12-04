@@ -26,16 +26,7 @@
     };
   };
 
-  mkUser = userName: {
-    includes = with aspects; [
-      aspects.${userName}
-      (homeManager._.users "${hostName}" "${userName}")
-    ];
-
-    nixos = {};
-  };
-
-  mapUser = userName: aspects.${hostName}._.${userName};
+  mkHome = userName: aspects.homeManager._.users "${userName}";
 in {
   inherit nixosHosts;
 
@@ -51,10 +42,9 @@ in {
           stylix
           virtualization
         ]
-        ++ lib.map mapUser hostData.users;
+        ++ lib.map mkHome hostData.users;
 
       nixos = {};
-      _ = lib.genAttrs hostData.users mkUser;
     };
   };
 }

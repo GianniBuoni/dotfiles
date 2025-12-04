@@ -2,7 +2,9 @@ top @ {...}: {
   flake-file.inputs.home-manager.url = "github:nix-community/home-manager";
 
   flake.aspects = {aspects, ...}: {
-    homeManager._.users = hostName: username: {
+    homeManager._.users = username: {
+      includes = [aspects.${username}];
+
       nixos = {
         lib,
         inputs,
