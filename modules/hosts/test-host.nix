@@ -11,7 +11,7 @@
 
   nixosHosts.${hostName}.hostData = {
     inherit hostName;
-    users = ["jonnn"];
+    users = ["jonnn" "k3s-user"];
   };
 in {
   inherit nixosHosts;
