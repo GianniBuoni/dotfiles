@@ -35,11 +35,11 @@
 
       # fonts
       fonts = let
-        inherit (themeSettings.font) name package;
+        inherit (themeSettings.font) nerd package;
       in {
         monospace = {
-          inherit name;
-          package = pkgs.${package};
+          name = nerd;
+          package = pkgs.nerd-fonts.${package};
         };
         sizes = {
           applications = 10;
@@ -60,6 +60,7 @@
 
     stylix.targets = {
       firefox = {inherit profileNames;};
+      waybar.enable = false;
       zen-browser = {inherit profileNames;};
     };
   };

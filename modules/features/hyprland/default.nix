@@ -11,7 +11,7 @@
       };
     };
 
-    homeManger = {
+    homeManager = {
       wayland.windowManager.hyprland.enable = true;
     };
   };
