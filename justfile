@@ -3,6 +3,13 @@ build-with-update: update build
 build: write
   sudo nixos-rebuild switch --flake .
 
+remote hostname ip:
+  git add .
+  nixos-rebuild switch \
+    --flake .#{{hostname}} \
+    --target-host {{ip}} \
+    --ask-sudo-password
+
 update:
   sudo nix flake update
 
