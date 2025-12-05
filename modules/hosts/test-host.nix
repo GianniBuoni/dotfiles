@@ -5,9 +5,9 @@
 }: let
   hostName = "test-host";
   aspects = config.flake.aspects;
-  inherit (nixosHosts.${hostName}) hostData;
 
-  lib' = config.flake.lib;
+  inherit (nixosHosts.${hostName}) hostData;
+  inherit (config.flake.lib) mkUser;
 
   nixosHosts.${hostName}.hostData = {
     inherit hostName;
@@ -28,7 +28,7 @@ in {
         k3s._.singleNode
         virtualization
       ]
-      ++ lib.map lib'.mkUser hostData.users;
+      ++ lib.map mkUser hostData.users;
 
     nixos = {};
   };
