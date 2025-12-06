@@ -1,44 +1,38 @@
-let
-  enable = true;
-in {
+{
   flake.aspects.git = {
     nixos = {pkgs, ...}: {
       environment.systemPackages = with pkgs; [git gh];
     };
 
-    homeManager = {config, ...}: let
+    homeManager = {
+      lib,
+      config,
+      ...
+    }: let
+      enable = true;
+      secretPaths = {
+        name = "git/user";
+        email = "git/email";
+      };
       secrets = config.sops.secrets;
-
-      secretKeys = {
-        userName = "git/userName";
-        userEmail = "git/userName";
-      };
-
-      secretValues = {
-        userName = builtins.readFile secrets.${secretKeys.userEmail}.path;
-        userEmail = builtins.readFile secrets.${secretKeys.userName}.path;
-      };
     in {
       sops.secrets = {
-        inherit (secretKeys) userName userEmail;
+        ${secretPaths.name} = {};
+        ${secretPaths.email} = {};
       };
 
       programs = {
         gh = {inherit enable;};
         git = {
           inherit enable;
-          inherit (secretValues) userName userEmail;
-
-          extraConfig.init.defaultBranch = "main";
-
-          ignores = [
-            ".DS_Store"
-            ".env"
-            ".env.local"
-          ];
+          ignores = [".DS_Store" ".env" ".env.local"];
+          settings.init.defaultBranch = "main";
+          settings.user = lib.mkIf (lib.pathExists secrets.${secretPaths.name}.path) {
+            name = builtins.readFile secrets.${secretPaths.name}.path;
+            email = builtins.readFile secrets.${secretPaths.email}.path;
+          };
         };
-
-        lazygit = {enable = true;};
+        lazygit = {inherit enable;};
       };
     };
   };

@@ -1,7 +1,7 @@
 build-with-update: update build
 
 build: write
-  sudo nixos-rebuild switch --flake .
+  sudo nixos-rebuild switch --impure --flake .
 
 remote hostname ip:
   git add .

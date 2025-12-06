@@ -5,12 +5,14 @@ in {
   flake.aspects = {aspects, ...}: {
     ${userName} = {
       includes = with aspects; [
-        (ssh._.users "${userName}" "dev")
         art
         browsers
         desktop
         fileSync
+        git
         shell
+        (sops._.users "${userName}" "1000")
+        (ssh._.users "${userName}" "dev")
         textEditing
       ];
 
