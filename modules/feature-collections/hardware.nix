@@ -12,7 +12,12 @@ in {
           nvidia._.${asus}
         ];
 
-        nixos = {};
+        nixos = {pkgs, ...}: {
+          hardware = {
+            cpu.amd.updateMicrocode = true;
+            firmware = with pkgs; [linux-firmware];
+          };
+        };
       };
 
       ${latitude}.nixos = {pkgs, ...}: {
