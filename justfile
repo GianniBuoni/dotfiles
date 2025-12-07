@@ -1,22 +1,31 @@
+# builds nixos configuration and updates all inputs
 build-with-update: update build
 
-build: write
+# builds nixos configuration for current host
+build: add
   sudo nixos-rebuild switch --impure --flake .
 
-remote hostname ip:
-  git add .
+# builds nixos configuration for remote host
+remote hostname ip: add
   nixos-rebuild switch \
     --flake .#{{hostname}} \
     --target-host {{ip}} \
+    --impure \
     --ask-sudo-password
 
+# updates all flake inputs
 update:
   sudo nix flake update
 
-write:
+# stages all files to git
+add:
   git add .
+
+# runs a flake.nix generation
+write: add
   nix run .#write-flake
 
+# runs a flake check for all outputs
 check: write
   nix flake check --impure
 
@@ -33,7 +42,7 @@ ORIGIN_LUKS_KEY := "/run/secrets/luksKeys"
 # location of the target host's luks key for installation
 TARGET_LUKS_KEY := "/tmp/secret.key"
 
-# install script assumes the target host is using a nixos installer and already has sops nix running via nixos or home manager
+# install script assumes the target host is using a nixos installer and build host has sops nix running via nixos or home manager
 install hostname ip source:
     install -d {{TARGET_AGE_DIR}}
     cp {{ORIGIN_AGE_KEY}} {{TARGET_AGE_KEY}}
