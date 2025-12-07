@@ -7,10 +7,7 @@
   }: let
     inherit (config) hostData;
   in {
-    sops.secrets = {
-      "wifi.env" = {};
-      "zerotierNetwork" = {};
-    };
+    sops.secrets."wifi.env" = {};
 
     environment.systemPackages = with pkgs; [
       curl
@@ -35,15 +32,6 @@
           };
         };
       };
-    };
-
-    # IMPURE requires secrets to already be bootstrapped to build
-    services.zerotierone = let
-      networkIdPath = ''${config.sops.secrets."zerotierNetwork".path}'';
-    in {
-      joinNetworks = lib.mkIf (builtins.pathExists networkIdPath) [
-        (builtins.readFile networkIdPath)
-      ];
     };
 
     services.openssh = {

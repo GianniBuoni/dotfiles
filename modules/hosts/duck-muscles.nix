@@ -41,6 +41,7 @@ in {
           tablets
           stylix
           virtualization
+          zerotier
         ]
         ++ lib.map mkHome hostData.users;
 

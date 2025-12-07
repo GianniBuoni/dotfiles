@@ -27,6 +27,7 @@
           inherit enable;
           ignores = [".DS_Store" ".env" ".env.local"];
           settings.init.defaultBranch = "main";
+          # IMPURE
           settings.user = lib.mkIf (lib.pathExists secrets.${secretPaths.name}.path) {
             name = builtins.readFile secrets.${secretPaths.name}.path;
             email = builtins.readFile secrets.${secretPaths.email}.path;
