@@ -5,6 +5,7 @@
         hyprland
         rofi
         waybar
+        fuzzel
       ];
 
       homeManager = {pkgs, ...}: {
@@ -16,7 +17,6 @@
         ];
 
         services.mako.enable = true;
-        programs.fuzzel.enable = true;
       };
     };
   };

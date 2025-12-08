@@ -5,9 +5,7 @@
       "$terminal" = "ghostty";
       "$notes" = "obsidian";
       "$fileManager" = "ghostty -e yazi";
-      "$menu" = "rofi -show drun";
-      "$run" = "rofi -show run";
-      "$emoji" = "rofi -modi emoji -show emoji";
+      "$menu" = "fuzzel";
       "$web" = "zen-beta";
 
       # program key bindings
