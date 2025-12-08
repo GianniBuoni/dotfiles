@@ -11,8 +11,9 @@ in {
   };
 
   flake.aspects.sops = {
-    nixos = {
+    nixos = {pkgs, ...}: {
       imports = [inputs.sops-nix.nixosModules.sops];
+      environment.systemPackages = with pkgs; [sops];
 
       sops = {
         inherit defaultSopsFile;
