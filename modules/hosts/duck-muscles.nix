@@ -36,6 +36,7 @@ in {
         [
           (nixosCore._.host "${hostName}")
           hardware._.asusLaptop
+          flakePackages
           gaming
           greetd
           tablets

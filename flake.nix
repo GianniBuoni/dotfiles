@@ -16,6 +16,7 @@
       url = "github:fzakaria/nix-auto-follow";
     };
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    sb.url = "github:GianniBuoni/second-brain";
     secrets = {
       flake = false;
       url = "git+ssh://git@github.com/GianniBuoni/secrets.git?ref=main&shallow=1";
