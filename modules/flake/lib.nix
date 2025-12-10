@@ -24,11 +24,35 @@ in {
         ];
       };
     mkUser = userName: config.flake.aspects.${userName};
+    # Disko functions
+    mkEsp = size: {
+      inherit size;
+      type = "EF00";
+      content = {
+        type = "filesystem";
+        format = "vfat";
+        mountpoint = "/boot";
+        mountOptions = ["umask=0077"];
+      };
+    };
     mkFs = format: size: mountpoint: {
       inherit size;
       content = {
         inherit mountpoint format;
         type = "filesystem";
+      };
+    };
+    mkLuks = size: {
+      inherit size;
+      content = {
+        type = "luks";
+        name = "crypted";
+        passwordFile = "/tmp/secret.key";
+        settings.allowDiscards = true;
+        content = {
+          type = "lvm_pv";
+          vg = "vg";
+        };
       };
     };
   };

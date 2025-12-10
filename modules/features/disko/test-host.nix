@@ -1,31 +1,8 @@
 {config, ...}: let
-  inherit (config.flake.lib) mkFs;
+  inherit (config.flake.lib) mkEsp mkFs mkLuks;
 
-  # define the boot partiton
-  ESP = {
-    size = "1G";
-    type = "EF00";
-    content = {
-      type = "filesystem";
-      format = "vfat";
-      mountpoint = "/boot";
-      mountOptions = ["umask=0077"];
-    };
-  };
-  # define luks partition
-  luks = {
-    size = "100%";
-    content = {
-      type = "luks";
-      name = "crypted";
-      passwordFile = "/tmp/secret.key";
-      settings.allowDiscards = true;
-      content = {
-        type = "lvm_pv";
-        vg = "vg";
-      };
-    };
-  };
+  ESP = mkEsp "1G";
+  luks = mkLuks "100%";
 
   ssd = {
     type = "disk";
