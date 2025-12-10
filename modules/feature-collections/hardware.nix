@@ -1,7 +1,6 @@
 # related hardware modules for an asus laptop
 let
   asus = "asusLaptop";
-  latitude = "latitude";
 in {
   flake.aspects = {aspects, ...}: {
     hardware._ = {
@@ -20,9 +19,16 @@ in {
         };
       };
 
-      ${latitude}.nixos = {pkgs, ...}: {
+      intel.nixos = {pkgs, ...}: {
         hardware = {
           cpu.intel.updateMicrocode = true;
+          firmware = with pkgs; [linux-firmware];
+        };
+      };
+
+      asus.nixos = {pkgs, ...}: {
+        hardware = {
+          cpu.amd.updateMicrocode = true;
           firmware = with pkgs; [linux-firmware];
         };
       };

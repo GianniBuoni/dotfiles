@@ -29,7 +29,7 @@ in {
     includes = with aspects; [
       (nixosCore._.host "${hostName}")
       greetd
-      hardware._.latitude
+      hardware._.intel
       k3s
       k3s._.singleNode
       stylix
