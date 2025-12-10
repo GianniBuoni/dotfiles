@@ -1,8 +1,9 @@
 {config, ...}: let
-  inherit (config.flake.lib) mkEsp mkFs mkLuks;
+  inherit (config.flake.lib) mkEsp mkFs mkLuks mkSwap;
 
   ESP = mkEsp "1G";
   luks = mkLuks "100%";
+  swap = mkSwap "4G";
 
   ssd = {
     type = "disk";
@@ -22,13 +23,7 @@ in {
         lvm_vg.vg = {
           type = "lvm_vg";
           lvs = {
-            swap = {
-              size = "4G";
-              content = {
-                type = "swap";
-                discardPolicy = "both";
-              };
-            };
+            inherit swap;
             root = mkFs "ext4" "5G" "/";
           };
         };
@@ -43,13 +38,7 @@ in {
         lvm_vg.vg = {
           type = "lvm_vg";
           lvs = {
-            swap = {
-              size = "4G";
-              content = {
-                type = "swap";
-                discardPolicy = "both";
-              };
-            };
+            inherit swap;
             root = mkFs "ext4" "100%" "/";
           };
         };

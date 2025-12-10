@@ -55,5 +55,12 @@ in {
         };
       };
     };
+    mkSwap = size: {
+      inherit size;
+      content = {
+        type = "swap";
+        discardPolicy = "both";
+      };
+    };
   };
 }
