@@ -19,7 +19,7 @@ in {
       singleNode.nixos.services.k3s.role = "server";
 
       # common multi-node cluster configs
-      mutiNode.nixos = {config, ...}: {
+      multiNode.nixos = {config, ...}: {
         sops.secrets.${tokenPath} = {
           owner = config.users.users.k3s-user.name;
           inherit (config.users.users.k3s-user) group;
@@ -29,12 +29,12 @@ in {
       };
 
       # node configs
-      controlNode.nixos.services.k3s = {
+      serverNode.nixos.services.k3s = {
         role = "server";
         clusterInit = true;
       };
 
-      workerNode.nixos.services.k3s = {
+      agentNode.nixos.services.k3s = {
         role = "agent";
       };
     };
