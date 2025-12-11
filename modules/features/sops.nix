@@ -26,6 +26,19 @@ in {
       };
     };
 
+    _.keyPaths = keyPath: {
+      description = "Loads passed in key path and gives ownership to host's trusted user.";
+      nixos = {config, ...}: let
+        userName = toString (builtins.elemAt config.hostData.users 0);
+        user = config.users.users.${userName};
+      in {
+        sops.secrets.${keyPath} = {
+          owner = user.name;
+          inherit (user) group;
+        };
+      };
+    };
+
     _.users = userName: uid: {
       homeManager = {
         imports = [inputs.sops-nix.homeManagerModules.sops];
