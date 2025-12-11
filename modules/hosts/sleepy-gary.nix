@@ -5,7 +5,7 @@
 }: let
   baseName = "sleepy-gary";
   hostIds = ["00"];
-  hostNames = lib.forEach hostIds (hostId: "${baseName}-${hostId}");
+  hostNames = lib.map (hostId: "${baseName}-${hostId}") hostIds;
 
   inherit (config.flake) aspects;
 
@@ -30,5 +30,14 @@
   };
 in {
   nixosHosts = lib.genAttrs hostNames mkHostData;
-  flake.aspects = lib.genAttrs hostNames mkHost;
+  flake.aspects =
+    lib.genAttrs hostNames mkHost
+    // {
+      luks._.sleepy-gary = {
+        description = "Feature collection of luks secrets for dev machine to manage.";
+        includes =
+          lib.map (hostName: aspects.sops._.keyPaths "luksKeys/${hostName}")
+          hostNames;
+      };
+    };
 }

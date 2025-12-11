@@ -43,6 +43,7 @@ in {
           stylix
           virtualization
           zerotier
+          luks._.sleepy-gary
         ]
         ++ lib.map mkHome hostData.users;
 
