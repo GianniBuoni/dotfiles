@@ -25,7 +25,7 @@
         "hyprpaper"
         "mako"
         "waybar"
-        "[workspace 1] $web"
+        "[workspace 1 silent] $web"
         "[workspace 2] $terminal"
       ];
     };
