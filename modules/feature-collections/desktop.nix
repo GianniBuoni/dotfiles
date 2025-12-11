@@ -1,23 +1,12 @@
 {
   flake.aspects = {aspects, ...}: {
-    desktop = {
-      includes = with aspects; [
-        hyprland
-        rofi
-        waybar
-        fuzzel
-      ];
-
-      homeManager = {pkgs, ...}: {
-        home.packages = with pkgs; [
-          libnotify # Mako dependency
-          blueman
-          pavucontrol
-          networkmanagerapplet
-        ];
-
-        services.mako.enable = true;
-      };
-    };
+    desktop.includes = with aspects; [
+      clipboard
+      emojiPicker
+      fuzzel
+      hyprland
+      waybar
+      systemManagement # homeManager import
+    ];
   };
 }

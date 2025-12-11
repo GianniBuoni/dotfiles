@@ -1,18 +1,33 @@
 {
-  flake.aspects.systemManagement.nixos = {pkgs, ...}: {
-    environment.systemPackages = with pkgs; [
-      bashmount
-      btop
-      efibootmgr
-      exiftool
-      fastfetch
-      lshw
-      pciutils
-      trash-cli
-      unzip
-    ];
+  flake.aspects.systemManagement = {
+    description = "Tools for managing system state and hardware inspection";
 
-    services.power-profiles-daemon.enable = true;
-    security.rtkit.enable = true;
+    nixos = {pkgs, ...}: {
+      environment.systemPackages = with pkgs; [
+        bashmount
+        btop
+        efibootmgr
+        exiftool
+        fastfetch
+        lshw
+        pciutils
+        trash-cli
+        unzip
+      ];
+
+      services.power-profiles-daemon.enable = true;
+      security.rtkit.enable = true;
+    };
+
+    homeManager = {pkgs, ...}: {
+      home.packages = with pkgs; [
+        libnotify # Mako dependency
+        blueman
+        pavucontrol
+        networkmanagerapplet
+      ];
+
+      services.mako.enable = true;
+    };
   };
 }
