@@ -21,7 +21,7 @@ in {
         type = "lvm_vg";
         lvs = {
           inherit swap;
-          root = mkFs "ext4" "64G" "/";
+          root = mkFs "ext4" "32G" "/";
         };
       };
     };
