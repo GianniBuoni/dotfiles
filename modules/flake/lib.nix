@@ -1,11 +1,21 @@
 {
   inputs,
   config,
+  lib,
   ...
 }: let
   self = config.flake.modules;
 in {
   flake.lib = {
+    # constants
+    clusterHosts = let
+      clusterName = "sleepy-gary";
+      clusterIds = ["00"];
+    in
+      lib.map (hostId: "${clusterName}-${hostId}") clusterIds;
+
+    # functions
+    mkUser = userName: config.flake.aspects.${userName};
     mkNixosHost = hostName: opts:
       inputs.nixpkgs.lib.nixosSystem {
         pkgs = import inputs.nixpkgs {
@@ -23,8 +33,8 @@ in {
           {system = {inherit (opts.hostData) stateVersion;};}
         ];
       };
-    mkUser = userName: config.flake.aspects.${userName};
-    # Disko functions
+
+    # disko functions
     mkEsp = size: {
       inherit size;
       type = "EF00";
