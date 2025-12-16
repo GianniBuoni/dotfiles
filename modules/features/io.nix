@@ -1,24 +1,30 @@
 {
-  flake.aspects.io.nixos = {
-    services = {
-      # Audio
-      pipewire.enable = true;
+  flake.aspects.io = {
+    nixos = {
+      services = {
+        # Audio
+        pipewire.enable = true;
 
-      # Keyboard
-      xserver.enable = true;
-      xserver.xkb = {
-        layout = "us";
-        variant = "";
+        # Keyboard
+        xserver.enable = true;
+        xserver.xkb = {
+          layout = "us";
+          variant = "";
+        };
+
+        printing.enable = true; # Enable CUPS to print documents.
+        udisks2.enable = true;
       };
 
-      printing.enable = true; # Enable CUPS to print documents.
-      udisks2.enable = true;
+      hardware.bluetooth.enable = true;
+      hardware.graphics = {
+        enable = true;
+        enable32Bit = true; # Enable Open GL
+      };
     };
 
-    hardware.bluetooth.enable = true;
-    hardware.graphics = {
-      enable = true;
-      enable32Bit = true; # Enable Open GL
+    _.cluster.nixos = {lib, ...}: {
+      services.xserver.enable = lib.mkForce false;
     };
   };
 }
