@@ -12,7 +12,7 @@ in {
       clusterData = [
         {
           name = "${clusterName}-00";
-          value = {hardware = "intel";};
+          value = {hardware = "amd";};
         }
       ];
     in

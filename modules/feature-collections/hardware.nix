@@ -26,7 +26,7 @@ in {
         };
       };
 
-      asus.nixos = {pkgs, ...}: {
+      amd.nixos = {pkgs, ...}: {
         hardware = {
           cpu.amd.updateMicrocode = true;
           firmware = with pkgs; [linux-firmware];
