@@ -11,6 +11,7 @@
         fastfetch
         lshw
         pciutils
+        pstree
         trash-cli
         unzip
       ];
