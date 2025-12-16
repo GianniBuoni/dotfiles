@@ -6,9 +6,11 @@
   inherit (config.flake.lib) clusterHosts;
   inherit (config.flake) aspects;
 
-  mkHost = hostName: {
+  mkHost = hostName: values: {
     includes = with aspects; [
       (nixosCore._.host "${hostName}")
+      hardware._.${values.hardware}
+      io._.cluster
       k3s
       k3s._.multiNode
       k3s._.serverNode
@@ -19,13 +21,13 @@
     nixos = {};
   };
 
-  mkHostData = hostName: {
+  mkHostData = hostName: _: {
     hostData = {
       inherit hostName;
       users = ["jonnn" "k3s-user"];
     };
   };
 in {
-  nixosHosts = lib.genAttrs clusterHosts mkHostData;
-  flake.aspects = lib.genAttrs clusterHosts mkHost;
+  nixosHosts = lib.mapAttrs mkHostData clusterHosts;
+  flake.aspects = lib.mapAttrs mkHost clusterHosts;
 }

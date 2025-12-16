@@ -12,7 +12,7 @@
   in {
     secrets = {
       description = "Collection of secrets for dev machine to access.";
-      includes = lib.map mkAge clusters ++ lib.map mkLuks clusterHosts;
+      includes = lib.map mkAge clusters ++ lib.map mkLuks (builtins.attrNames clusterHosts);
     };
   };
 }

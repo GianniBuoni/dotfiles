@@ -1,7 +1,6 @@
 {
   inputs,
   config,
-  lib,
   ...
 }: let
   self = config.flake.modules;
@@ -10,9 +9,14 @@ in {
     # constants
     clusterHosts = let
       clusterName = "sleepy-gary";
-      clusterIds = ["00"];
+      clusterData = [
+        {
+          name = "${clusterName}-00";
+          value = {hardware = "intel";};
+        }
+      ];
     in
-      lib.map (hostId: "${clusterName}-${hostId}") clusterIds;
+      builtins.listToAttrs clusterData;
 
     # functions
     mkUser = userName: config.flake.aspects.${userName};
