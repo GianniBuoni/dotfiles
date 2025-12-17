@@ -11,6 +11,7 @@
       (nixosCore._.host "${hostName}")
       hardware._.${values.hardware}
       io._.cluster
+      boot._.luks
       k3s
       k3s._.multiNode
       k3s._.serverNode

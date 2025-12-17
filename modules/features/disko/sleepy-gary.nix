@@ -1,5 +1,5 @@
 {config, ...}: let
-  inherit (config.flake.lib) mkEsp mkFs mkLuks mkSwap;
+  inherit (config.flake.lib) mkEsp mkFs mkEmpty mkLuks mkSwap;
 
   ESP = mkEsp "1G";
   luks = mkLuks "100%";
@@ -21,7 +21,8 @@ in {
         type = "lvm_vg";
         lvs = {
           inherit swap;
-          root = mkFs "ext4" "32G" "/";
+          root = mkFs "ext4" "64G" "/";
+          osd = mkEmpty "100%";
         };
       };
     };

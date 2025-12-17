@@ -1,6 +1,6 @@
 let
   userName = "k3s-user";
-  passKey = "hashedPasswords/k3s";
+  passKey = "passwords/k3s/hashed";
 in {
   flake.aspects = {aspects, ...}: {
     ${userName} = {

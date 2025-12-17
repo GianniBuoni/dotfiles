@@ -39,6 +39,7 @@ in {
       };
 
     # disko functions
+    # boot partition
     mkEsp = size: {
       inherit size;
       type = "EF00";
@@ -49,6 +50,8 @@ in {
         mountOptions = ["umask=0077"];
       };
     };
+    # basic filesystem, formats the disk to any specified
+    # filesystem type
     mkFs = format: size: mountpoint: {
       inherit size;
       content = {
@@ -56,12 +59,14 @@ in {
         type = "filesystem";
       };
     };
-    mkLuks = size: {
+    # Creates interactive luks partiton: it will ask for a password on boot.
+    # Using this function does not require the `luks` aspect on the host.
+    mkInteractiveLuks = size: {
       inherit size;
       content = {
         type = "luks";
         name = "crypted";
-        passwordFile = "/tmp/secret.key";
+        passwordFile = "/tmp/luks.key";
         settings.allowDiscards = true;
         content = {
           type = "lvm_pv";
@@ -69,6 +74,27 @@ in {
         };
       };
     };
+    # Creates luks partition.
+    # Using function requires host to include `luks` aspect.
+    mkLuks = size: {
+      inherit size;
+      content = {
+        type = "luks";
+        name = "crypted";
+        settings = {
+          allowDiscards = true;
+          keyFile = "/dev/disk/by-uuid/2522-06ED";
+          keyFileSize = 4096;
+        };
+        content = {
+          type = "lvm_pv";
+          vg = "vg";
+        };
+      };
+    };
+    # Empty partition, useful for Ceph OSD creation
+    mkEmpty = size: {inherit size;};
+    # Basic swap partition
     mkSwap = size: {
       inherit size;
       content = {
