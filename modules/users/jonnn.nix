@@ -1,6 +1,6 @@
 let
   userName = "jonnn";
-  passKey = "hashedPasswords/${userName}";
+  passKey = "passwords/${userName}/hashed";
 in {
   flake.aspects = {aspects, ...}: {
     ${userName} = {
@@ -27,7 +27,7 @@ in {
         users.users.${userName} = {
           isNormalUser = true;
           hashedPasswordFile = config.sops.secrets.${passKey}.path;
-          extraGroups = ["wheel" "networkmanager"];
+          extraGroups = ["wheel" "networkmanager" "docker"];
           shell = pkgs.zsh;
         };
       };
