@@ -7,18 +7,28 @@
   inherit (config.flake) aspects;
 
   mkHost = hostName: values: {
-    includes = with aspects; [
-      (nixosCore._.host "${hostName}")
-      hardware._.${values.hardware}
-      io._.cluster
-      boot._.luks
-      k3s
-      k3s._.multiNode
-      k3s._.serverNode
-      virtualization
-      jonnn
-      k3s-user
-    ];
+    includes = with aspects;
+      [
+        (nixosCore._.host "${hostName}")
+        hardware._.${values.hardware}
+        io._.cluster
+        boot._.luks
+        k3s
+        k3s._.multiNode
+        virtualization
+        jonnn
+        k3s-user
+      ]
+      ++ (
+        if hostName == "sleepy-gary-00"
+        then [
+          k3s._.firstNode
+        ]
+        else [
+          k3s._.serverNode
+        ]
+      );
+
     nixos = {};
   };
 
