@@ -1,10 +1,6 @@
-{
-  lib,
-  config,
-  ...
-}: {
+{lib, ...}: {
   flake.aspects = {aspects, ...}: let
-    clusters = ["testing" "staging" "prod"];
+    clusters = ["staging" "prod"];
 
     mkAge = name: aspects.sops._.keyPaths "cluster-secrets/${name}/age.agekey";
   in {
