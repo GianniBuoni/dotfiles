@@ -4,7 +4,7 @@ in {
   flake.aspects = {aspects, ...}: {
     k3s = {
       # base k3s clusetr config
-      nixos = {
+      nixos = {lib, ...}: {
         networking.firewall = {
           allowedTCPPorts = [6443];
           allowedUDPPorts = [8472];
@@ -17,6 +17,12 @@ in {
             "--disable=servicelb"
           ];
         };
+        # containerd settings
+        systemd.services.containerd.serviceConfig = {
+          LimitNoFile = lib.mkForce null;
+        };
+        # boot paramaters for rook-ceph
+        boot.kernelModules = ["rbd"];
       };
 
       _ = {
