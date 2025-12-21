@@ -15,7 +15,7 @@ remote hostname ip: add
 
 # updates all flake inputs
 update:
-  sudo nix flake update
+  nix flake update
 
 # stages all files to git
 add:
