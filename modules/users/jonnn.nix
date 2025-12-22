@@ -27,7 +27,7 @@ in {
         users.users.${userName} = {
           isNormalUser = true;
           hashedPasswordFile = config.sops.secrets.${passKey}.path;
-          extraGroups = ["wheel" "networkmanager" "docker"];
+          extraGroups = ["wheel" "networkmanager" "docker" "libvirtd"];
           shell = pkgs.zsh;
         };
       };
