@@ -10,6 +10,10 @@
     };
 
     _.duck-muscles.nixos = {pkgs, ...}: {
+      environment.systemPackages = with pkgs; [
+        docker-machine-kvm2
+      ];
+
       virtualisation.libvirtd = {
         enable = true;
         qemu = {
