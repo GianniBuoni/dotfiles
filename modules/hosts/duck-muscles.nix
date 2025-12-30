@@ -39,6 +39,7 @@ in {
           flakePackages
           gaming
           greetd
+          networking._."${hostName}"
           secrets
           stylix
           tablets
