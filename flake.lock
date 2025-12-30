@@ -595,10 +595,10 @@
     "secrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1766422397,
-        "narHash": "sha256-JunMc7cXNSHYnb5S+4dladl1XX9nuZzNlrZHEW1htac=",
+        "lastModified": 1766424020,
+        "narHash": "sha256-FnUPhhAa+nZgQdaP0xphI7pEocUAMWWm65PT9mgMIkE=",
         "ref": "main",
-        "rev": "1bfc1ca21113b1b9c38619e23d958f3c41001416",
+        "rev": "93361eeeb8c4370c5504032f7f44c75278d8ef5a",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/GianniBuoni/secrets.git"
