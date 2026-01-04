@@ -45,7 +45,6 @@ in {
           tablets
           virtualization
           virtualization._."${hostName}"
-          zerotier
         ]
         ++ lib.map mkHome hostData.users;
 
