@@ -44,9 +44,12 @@
         };
       };
     };
-    # allow duck-muscles to modify /etc/hosts for ingress testing
+
     _.duck-muscles.nixos = {
-      environment.etc.hosts.mode = "0700";
+      services = {
+        nfs.server.enable = true;
+        tailscale.enable = true;
+      };
     };
   };
 }
