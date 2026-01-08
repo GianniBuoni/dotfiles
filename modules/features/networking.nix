@@ -48,7 +48,7 @@
     _.duck-muscles.nixos = {
       services = {
         nfs.server.enable = true;
-        tailscale.enable = true;
+        netbird.enable = true;
       };
     };
   };
