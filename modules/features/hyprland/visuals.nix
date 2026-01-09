@@ -6,6 +6,11 @@
   }: let
     palette = config.lib.stylix.colors;
   in {
+    services.hyprpaper = {
+      enable = true;
+      settings.splash = false;
+    };
+
     wayland.windowManager.hyprland.settings = {
       general = {
         gaps_in = 5;
@@ -46,8 +51,11 @@
       master.new_status = "master";
 
       misc = {
-        force_default_wallpaper = 0; # Set to 0 or 1 to disable the anime mascot wallpapers
-        disable_hyprland_logo = true; # If true disables the random hyprland logo / anime girl background.
+        # Set to 0 or 1 to disable the anime mascot wallpapers
+        force_default_wallpaper = 0;
+        # If true disables the random hyprland logo / anime girl background.
+        disable_hyprland_logo = true;
+        disable_splash_rendering = true;
       };
     };
   };

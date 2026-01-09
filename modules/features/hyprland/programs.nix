@@ -22,7 +22,6 @@
       ];
 
       exec-once = [
-        "hyprpaper"
         "mako"
         "waybar"
         "[workspace 1 silent] $web"

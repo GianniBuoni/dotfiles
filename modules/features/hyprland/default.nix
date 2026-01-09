@@ -20,9 +20,12 @@
     homeManager = {
       wayland.windowManager.hyprland = {
         enable = true;
-        settings.ecosystem = {
-          no_update_news = true;
-          no_donation_nag = true;
+        settings = {
+          ecosystem = {
+            no_update_news = true;
+            no_donation_nag = true;
+          };
+          misc.disable_watchdog_warning = true;
         };
       };
     };
