@@ -1,15 +1,13 @@
 {lib, ...}: {
   flake.aspects = {aspects, ...}: let
     clusters = ["testing" "staging"];
-
-    mkTlsCrt = name: aspects.sops._.keyPaths "cluster-secrets/${name}/tls.crt";
-    mkTlsKey = name: aspects.sops._.keyPaths "cluster-secrets/${name}/tls.key";
+    mkTls = name: ext: aspects.sops._.clusters "${name}" "tls.${ext}";
   in {
     secrets = {
       description = "Collection of secrets for dev machine to access.";
       includes =
-        lib.map mkTlsCrt clusters
-        ++ lib.map mkTlsKey clusters
+        lib.forEach clusters (cluster: mkTls cluster "crt")
+        ++ lib.forEach clusters (cluster: mkTls cluster "key")
         ++ [(aspects.sops._.keyPaths "luks.key")];
     };
   };

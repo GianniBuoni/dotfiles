@@ -1,5 +1,6 @@
 let
-  tokenPath = "cluster-secrets/prod/token";
+  clusterContext = "prod";
+  tokenPath = "token";
 in {
   flake.aspects = {aspects, ...}: {
     k3s = {
@@ -30,7 +31,9 @@ in {
         singleNode.nixos.services.k3s.role = "server";
 
         multiNode = {
-          includes = [(aspects.sops._.keyPaths "${tokenPath}")];
+          includes = [
+            (aspects.sops._.clusters "${clusterContext}" "${tokenPath}")
+          ];
 
           # common multi-node cluster configs
           nixos = {
@@ -41,7 +44,7 @@ in {
             networking.firewall.allowedTCPPorts = [2379 2380];
 
             services = {
-              k3s.tokenFile = config.sops.secrets.${tokenPath}.path;
+              k3s.tokenFile = config.sops.secrets."${clusterContext}/${tokenPath}".path;
             };
           };
         };

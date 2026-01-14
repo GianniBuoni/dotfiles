@@ -39,6 +39,21 @@ in {
       };
     };
 
+    _.clusters = cluster: keyPath: {
+      description = "Loads passed in key path from a cluster secret to host's trusted user.";
+      nixos = {config, ...}: let
+        userName = toString (builtins.elemAt config.hostData.users 0);
+        user = config.users.users.${userName};
+      in {
+        sops.secrets."${cluster}/${keyPath}" = {
+          sopsFile = "${secretsPath}/cluster-${cluster}.yaml";
+          key = "${keyPath}";
+          owner = user.name;
+          inherit (user) group;
+        };
+      };
+    };
+
     _.users = userName: uid: {
       homeManager = {
         imports = [inputs.sops-nix.homeManagerModules.sops];
