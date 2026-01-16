@@ -37,15 +37,7 @@ in {
 
           # common multi-node cluster configs
           nixos = {
-            config,
-            lib,
-            ...
-          }: {
             networking.firewall.allowedTCPPorts = [2379 2380];
-
-            services = {
-              k3s.tokenFile = config.sops.secrets."${clusterContext}/${tokenPath}".path;
-            };
           };
         };
 
@@ -55,15 +47,16 @@ in {
         };
 
         serverNode = firstIP: {
-          nixos.services.k3s = {
-            role = "server";
-            serverAddr = "https://${firstIP}:6443";
+          nixos = {config, ...}: {
+            services.k3s = {
+              role = "server";
+              serverAddr = "https://${firstIP}:6443";
+              tokenFile = config.sops.secrets."${clusterContext}/${tokenPath}".path;
+            };
           };
         };
 
-        agentNode.nixos.services.k3s = {
-          role = "agent";
-        };
+        agentNode.nixos.services.k3s = {role = "agent";};
       };
     };
   };
