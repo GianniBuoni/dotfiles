@@ -5,7 +5,7 @@ build-with-update: update build
 build: add
   sudo nixos-rebuild switch --impure --flake .
 
-USER := jonnn
+USER := "jonnn"
 # builds nixos configuration for remote host
 remote hostname: add
   nixos-rebuild switch \
