@@ -25,7 +25,7 @@
           k3s._.firstNode
         ]
         else [
-          k3s._.serverNode
+          (k3s._.serverNode "sleepy-gary-00")
         ]
       );
 

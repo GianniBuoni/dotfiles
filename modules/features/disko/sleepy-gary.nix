@@ -14,8 +14,8 @@
     };
   };
 in {
-  flake.aspects.disko._ = {
-    sleepy-gary-00.nixos.disko.devices = {
+  flake.aspects.disko._ = let
+    diskoSettings = {
       disk = {ssd = mkDisk "/dev/nvme0n1";};
       lvm_vg.vg = {
         type = "lvm_vg";
@@ -26,5 +26,8 @@ in {
         };
       };
     };
+  in {
+    sleepy-gary-00.nixos.disko.devices = diskoSettings;
+    sleepy-gary-02.nixos.disko.devices = diskoSettings;
   };
 }

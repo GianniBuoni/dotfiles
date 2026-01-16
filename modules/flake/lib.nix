@@ -14,6 +14,10 @@ in {
           name = "${clusterName}-00";
           value = {hardware = "amd";};
         }
+        {
+          name = "${clusterName}-02";
+          value = {hardware = "intel";};
+        }
       ];
     in
       builtins.listToAttrs clusterData;
