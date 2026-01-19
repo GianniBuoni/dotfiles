@@ -25,6 +25,11 @@
 
     _.cluster.nixos = {lib, ...}: {
       services.xserver.enable = lib.mkForce false;
+
+      services.logind.settings.Login = {
+        HandleLidSwitch = "ignore";
+        HandlePowerKey = "ignore";
+      };
     };
   };
 }
