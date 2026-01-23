@@ -1,6 +1,6 @@
 {lib, ...}: {
   flake.aspects = {aspects, ...}: let
-    clusters = ["testing" "staging"];
+    clusters = ["dev" "prod"];
     mkTls = name: ext: aspects.sops._.clusters "${name}" "tls.${ext}";
   in {
     secrets = {
