@@ -1,9 +1,9 @@
-# builds nixos configuration and updates all inputs
-build-with-update: update build
-
 # builds nixos configuration for current host
 build: add
   sudo nixos-rebuild switch --impure --flake .
+
+# builds nixos configuration and updates all inputs
+build-with-update: update build
 
 USER := "jonnn"
 # builds nixos configuration for remote host
