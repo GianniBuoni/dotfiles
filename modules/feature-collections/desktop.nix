@@ -4,7 +4,7 @@
       clipboard
       emojiPicker
       fuzzel
-      hyprland
+      niri
       waybar
       systemManagement # homeManager import
     ];
