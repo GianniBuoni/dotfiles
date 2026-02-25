@@ -2,10 +2,11 @@
   flake.aspects = {aspects, ...}: {
     shell = {
       includes = with aspects; [
-        zsh
-        zellij
-        starship
         terminalEmulators
+        starship
+        yazi
+        zellij
+        zsh
       ];
 
       nixos = {pkgs, ...}: {
@@ -15,7 +16,6 @@
           fzf
           eza
           ripgrep
-          starship
           zoxide
         ];
       };
@@ -27,16 +27,6 @@
           eza.enable = true;
           ripgrep.enable = true;
           zoxide.enable = true;
-        };
-        programs.yazi = {
-          enable = true;
-          settings.opener.edit = [
-            {
-              run = "hx $@";
-              block = true;
-              desc = "Open in Helix";
-            }
-          ];
         };
       };
     };

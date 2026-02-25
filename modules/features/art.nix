@@ -5,7 +5,7 @@
       blender
       godot
       ldtk
-      krita
+      # krita
     ];
   };
 }

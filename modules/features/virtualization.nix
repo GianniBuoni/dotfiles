@@ -11,7 +11,6 @@
 
     _.duck-muscles.nixos = {pkgs, ...}: {
       environment.systemPackages = with pkgs; [
-        docker-machine-kvm2
         qemu_kvm
         virt-manager
       ];
