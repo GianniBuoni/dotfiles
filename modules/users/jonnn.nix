@@ -14,6 +14,7 @@ in {
         (sops._.users "${userName}" "1000")
         (ssh._.users "${userName}" "dev")
         textEditing
+        xdgAutostart
       ];
 
       nixos = {
