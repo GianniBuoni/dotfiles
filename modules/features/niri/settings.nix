@@ -31,6 +31,11 @@
           warp-mouse-to-focus
       }
 
+      cursor {
+          hide-when-typing
+          xcursor-size 16
+      }
+
       output "${laptop-monitor}" {
           mode "2880x1800@120.000"
           scale 2
