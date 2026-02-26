@@ -13,38 +13,25 @@
         background-color: transparent;
       }
 
-      .modules-left, .modules-center {
+      .modules-center {
         background-color: #${palette.base00};
         border-radius: 2rem;
-        margin: 5px 1rem;
+        margin: 5px 1rem 0px 1rem;
         padding: 0 0.75rem;
       }
 
       .modules-right {
         background-color: transparent;
-        margin: 5px 1rem;
+        margin: 5px 1rem 0px 1rem;
       }
 
-      .modules-left #workspaces button {
+      button {
         border-radius: 0;
         border: 0;
       }
 
-      .modules-left #workspaces button.focused,
-      .modules-left #workspaces button.active {
-        border: 0;
-        color: #${palette.base09};
-      }
-
-      #tray, #battery, #temperature, #bluetooth, #backlight, #pulseaudio {
+      #tray, #battery, #temperature, #backlight, #pulseaudio {
         padding: 0 1rem;
-        background-color: #${palette.base00};
-        border-radius: 2rem;
-        margin: 0 0.25rem;
-      }
-
-      #network {
-        padding: 0 1.1rem 0 0.75rem;
         background-color: #${palette.base00};
         border-radius: 2rem;
         margin: 0 0.25rem;
@@ -68,7 +55,7 @@
         color: #${palette.base0B};
       }
 
-      #network, #bluetooth, #custom-wlogout {
+      #custom-wlogout {
         color: #${palette.base0D};
       }
 

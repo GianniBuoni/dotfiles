@@ -6,27 +6,11 @@
     settings.mainBar = {
       layer = "top";
       position = "top";
-      modules-left = ["hyprland/workspaces" "hyprland/window"];
       modules-center = ["clock"];
-      modules-right = ["tray" "battery" "temperature" "network" "bluetooth" "power-profiles-daemon" "backlight" "pulseaudio" "custom/wlogout"];
+      modules-right = ["tray" "battery" "temperature" "power-profiles-daemon" "backlight" "pulseaudio" "custom/wlogout"];
       "hyprland/window"."max-length" = 50;
       "clock" = {
         "format-alt" = "{:%Y-%m-%d, %H:%M}";
-      };
-      "network" = {
-        "format-wifi" = "{icon}";
-        "tooltip" = true;
-        "tooltip-format" = "{essid} ({signalStrength}%)";
-        "format-ethernet" = "󰛳";
-        "format-disconnected" = "󰌙";
-        "max-length" = 50;
-        "format-icons" = ["󰤯" "󰤟" "󰤢" "󰤥" "󰤨"];
-        "on-click" = "nm-connection-editor";
-      };
-      "bluetooth" = {
-        "format" = "󰂯";
-        "format-off" = "󰂲";
-        "on-click" = "blueman-manager";
       };
       "battery" = {
         "format" = "{capacity}% {icon}";
