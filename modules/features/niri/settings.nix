@@ -1,3 +1,5 @@
+# Check the wiki for a full description of the configuration:
+# https://yalter.github.io/niri/
 {
   flake.aspects.niri.homeManager = {config, ...}: let
     # monitors
@@ -95,9 +97,20 @@
               softness 30
               spread 5
               offset x=0 y=5
-              color "#0007"
+              color "#${colors.base00}"
           }
           struts {}
+      }
+
+      overview {
+          backdrop-color "#${colors.base02}"
+          workspace-shadow {
+              on
+              softness 30
+              spread 5
+              offset x=0 y=5
+              color "#${colors.base00}"
+          }
       }
       // startup
       spawn-at-startup "${bar}"

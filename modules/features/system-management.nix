@@ -29,6 +29,7 @@
       ];
 
       services.mako.enable = true;
+      services.wpaperd.enable = true;
     };
   };
 }
