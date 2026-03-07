@@ -25,6 +25,11 @@
           auto-format = true;
         }
         {
+          name = "go";
+          formatter = {command = "gopls";};
+          auto-format = true;
+        }
+        {
           name = "nix";
           formatter = {command = "alejandra";};
           auto-format = true;
