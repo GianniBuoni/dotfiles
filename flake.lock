@@ -620,11 +620,11 @@
         "systems": "systems"
       },
       "locked": {
-        "lastModified": 1772294264,
-        "narHash": "sha256-hQHIo7PvO4TC0Ekj4l4LrQ/B+PWkBPx1LvLe3Cg9rLk=",
+        "lastModified": 1772894960,
+        "narHash": "sha256-wyO6rm3qZ4nKx/NPDkSA4gnS6JwdufZXmhKRw1LESgE=",
         "owner": "GianniBuoni",
         "repo": "second-brain",
-        "rev": "9a28a701b47d5f554d02ce9352111247c4023a41",
+        "rev": "c510261d1bb3752e53a261851ed87747a190b811",
         "type": "github"
       },
       "original": {
