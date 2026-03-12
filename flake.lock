@@ -636,10 +636,10 @@
     "secrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1769477325,
-        "narHash": "sha256-SET0gxvLmP1dpjHF11RBqNnVqqaofXx7NAva6wWEJ2o=",
+        "lastModified": 1773274101,
+        "narHash": "sha256-mW0qTRkuQ3StluBUEjT/Iaemy/YgtEsjJLVViZUIucY=",
         "ref": "main",
-        "rev": "606b82430a56538bb922b0015169c0ce4d6c7324",
+        "rev": "2ac33d7df96838c8a952ebecb975bbbf0acf443c",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/GianniBuoni/secrets.git"
