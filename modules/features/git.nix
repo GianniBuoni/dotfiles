@@ -1,7 +1,7 @@
 {
   flake.aspects.git = {
     nixos = {pkgs, ...}: {
-      environment.systemPackages = with pkgs; [git gh];
+      environment.systemPackages = with pkgs; [git gh forgejo-cli];
     };
 
     homeManager = {
